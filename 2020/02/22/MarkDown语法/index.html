@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   
-  <title itemprop="name">小记 | 心脏i</title>
+  <title itemprop="name">MarkDown语法 | 心脏i</title>
   
     <link rel="shortcut icon" href="/images/favicon.jpg">
   
@@ -78,6 +78,48 @@
       </div>
       <div class="header-info">
         <p>凤兮凤兮归故乡 遨游四海求其凰</p>
+        <div id="binft"></div>
+  <script>
+    var binft = function (r) {
+      function t() {
+        return b[Math.floor(Math.random() * b.length)]
+      }  
+      function e() {
+        return String.fromCharCode(94 * Math.random() + 33)
+      }
+      function n(r) {
+        for (var n = document.createDocumentFragment(), i = 0; r > i; i++) {
+          var l = document.createElement("span");
+          l.textContent = e(), l.style.color = t(), n.appendChild(l)
+        }
+        return n
+      }
+      function i() {
+        var t = o[c.skillI];
+        c.step ? c.step-- : (c.step = g, c.prefixP < l.length ? (c.prefixP >= 0 && (c.text += l[c.prefixP]), c.prefixP++) : "forward" === c.direction ? c.skillP < t.length ? (c.text += t[c.skillP], c.skillP++) : c.delay ? c.delay-- : (c.direction = "backward", c.delay = a) : c.skillP > 0 ? (c.text = c.text.slice(0, -1), c.skillP--) : (c.skillI = (c.skillI + 1) % o.length, c.direction = "forward")), r.textContent = c.text, r.appendChild(n(c.prefixP < l.length ? Math.min(s, s + c.prefixP) : Math.min(s, t.length - c.skillP))), setTimeout(i, d)
+      }
+      var l = "",
+      o = ["讲卫生，勤洗手，不让病毒身上留；", "戴口罩，遮鼻口，个人防护记心头。","多蔬菜，多水果，增强自身抵抗力；", "睡眠足，水喝够，生活方式不简陋。","多通风，空气好，身边病毒便会少；","在家中，稳心态，一日三餐不可少。"].map(function (r) {
+      return r + ""
+      }),
+      a = 2,
+      g = 1,
+      s = 5,
+      d = 75,
+      b = ["rgb(110,64,170)", "rgb(150,61,179)", "rgb(191,60,175)", "rgb(228,65,157)", "rgb(254,75,131)", "rgb(255,94,99)", "rgb(255,120,71)", "rgb(251,150,51)", "rgb(226,183,47)", "rgb(198,214,60)", "rgb(175,240,91)", "rgb(127,246,88)", "rgb(82,246,103)", "rgb(48,239,130)", "rgb(29,223,163)", "rgb(26,199,194)", "rgb(35,171,216)", "rgb(54,140,225)", "rgb(76,110,219)", "rgb(96,84,200)"],
+      c = {
+        text: "",
+        prefixP: -s,
+        skillI: 0,
+        skillP: 0,
+        direction: "forward",
+        delay: a,
+        step: g
+      };
+      i()
+      };
+      binft(document.getElementById('binft'));
+  </script>
         <div class="top-social_v2">
           <li id="bg-pre">
             <img class="flipx" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/next-b.svg">
@@ -361,11 +403,11 @@
 
   <div class="pattern-center single-center">
     <!-- 有配图默认渲染第一张 -->
-    <div class="pattern-attachment-img lazyload" style="background-image: url(https://cdn.jsdelivr.net/gh/heart74/cdn@1.2/img/wlop/8.jpg);" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/heart74/cdn@1.2/img/wlop/8.jpg">
+    <div class="pattern-attachment-img lazyload" style="background-image: url(https://cdn.jsdelivr.net/gh/heart74/cdn@1.2/img/wlop/6.jpg);" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/heart74/cdn@1.2/img/wlop/6.jpg">
     </div>
     <header class="pattern-header single-header">
       <h1 class="entry-title">
-      小记</h1>
+      MarkDown语法</h1>
       <p class="entry-census">
         <span>
           <a href="https://heart74.github.io">
@@ -373,11 +415,11 @@
           </a>
         </span>
         <span>
-          <a href="https://heart74.github.io">heart</a>
+          <a href="https://heart74.github.io">heart74</a>
         </span>
         <span class="bull">
         ·</span>
-        2020-2-8<span class="bull">
+        2020-2-22<span class="bull">
         ·</span>
       <span id="busuanzi_value_page_pv"></span>次阅读</p>
     </header>
@@ -391,11 +433,112 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-          <h3 id="hi-guy！"><a href="#hi-guy！" class="headerlink" title="hi guy！"></a>hi guy！</h3><p>为什么会有这个呢？</p>
-<p>偶然看见一个非常漂亮的博客，特别羡慕。于是就想自己整一个。<br>然而假期全交给了==王者荣耀==，我太难了<br>巧了。最近由于一只蝙蝠，上不了学，他喵的网上看ppt那些又看不进去，老想玩手机。</p>
-<p>于是不如搞个这个玩玩，如你所见，我成功了哈哈哈哈。功夫不负有心人，找了个很好看的主题。个人觉得。 白嫖github，整出了这个博客。至于自己的域名，慢慢来，咱不急，来日方长。</p>
-<p>毕竟是第一次尝试，自我感觉还挺良好。</p>
-<p>就是好多地方还没写自己的东西，空白的，但是还是请多多关注，该有的都会有的，希望我能在这里大家分享自己在学习，生活等等各个方面的快乐。<em>一起进步！</em></p>
+          <h1 id="Markdown教学"><a href="#Markdown教学" class="headerlink" title="Markdown教学"></a>Markdown教学</h1><h3 id="1、代码块"><a href="#1、代码块" class="headerlink" title="1、代码块"></a>1、代码块</h3><pre><code class="python">#代码块语法
+```java
+
+
+```python
+
+
+```shell
+</code></pre>
+<p><strong>1.python代码</strong></p>
+<pre><code class="python">def hello:
+    print(&#39;hello world&#39;)
+hello()
+</code></pre>
+<p><strong>2.java代码</strong></p>
+<pre><code class="java">public class Test{
+    public void main()
+}
+</code></pre>
+<p><strong>3.shell</strong></p>
+<pre><code class="shell"># java -jar blog start
+</code></pre>
+<h4 id="方便起见下面的新语法我都放到代码块里了☟"><a href="#方便起见下面的新语法我都放到代码块里了☟" class="headerlink" title="方便起见下面的新语法我都放到代码块里了☟"></a>方便起见下面的新语法我都放到代码块里了☟</h4><h3 id="2、标题"><a href="#2、标题" class="headerlink" title="2、标题"></a>2、标题</h3><p><strong>六个等级</strong></p>
+<pre><code class="python"># 一级标题
+## 二级标题
+### 注意&#39;#&#39;号和内容之间加空格
+###### 一直到六级标题
+</code></pre>
+<h1 id="一级标题"><a href="#一级标题" class="headerlink" title="一级标题"></a>一级标题</h1><h2 id="二级标题"><a href="#二级标题" class="headerlink" title="二级标题"></a>二级标题</h2><h3 id="注意’-’号和内容之间加空格"><a href="#注意’-’号和内容之间加空格" class="headerlink" title="注意’#’号和内容之间加空格"></a>注意’#’号和内容之间加空格</h3><h6 id="一直到六级标题"><a href="#一直到六级标题" class="headerlink" title="一直到六级标题"></a>一直到六级标题</h6><h3 id="3、字体"><a href="#3、字体" class="headerlink" title="3、字体"></a>3、字体</h3><pre><code class="python"># 加粗
+**我要加粗**
+# 代码高亮显示
+==心脏==
+# 删除线
+~~被删除的文字~~
+# 斜体
+*斜体*
+</code></pre>
+<p><strong>我要加粗</strong></p>
+<p>==心脏==</p>
+<p><del>被删除的文字</del></p>
+<p><em>斜体</em></p>
+<h3 id="4、引用"><a href="#4、引用" class="headerlink" title="4、引用"></a>4、引用</h3><pre><code class="python"># 引用语法
+&gt;作者：heart
+&gt;&gt;作者：heart
+&gt;&gt;&gt;作者：heart
+</code></pre>
+<blockquote>
+<p>作者：heart</p>
+<blockquote>
+<p>作者：heart</p>
+<blockquote>
+<p>作者：heart</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<h3 id="5、分割线"><a href="#5、分割线" class="headerlink" title="5、分割线"></a>5、分割线</h3><pre><code class="python">#分割线
+---
+</code></pre>
+<hr>
+<h3 id="6、图片插入"><a href="#6、图片插入" class="headerlink" title="6、图片插入"></a>6、图片插入</h3><pre><code class="python"># 在线图片 / 本地图片
+![my_picture](5bcae8399fdb4.jpg) --图片路径
+
+</code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/heart74/cdn@1.2/img/wlop/7.jpg" alt="my_picture"></p>
+<h3 id="7、超链接"><a href="#7、超链接" class="headerlink" title="7、超链接"></a>7、超链接</h3><pre><code class="python"># 超链接语法
+[hello_baidu](https://www.baidu.com/)
+
+</code></pre>
+<p><a href="https://www.baidu.com/" target="_blank" rel="noopener">hello_baidu</a></p>
+<h3 id="8、列表"><a href="#8、列表" class="headerlink" title="8、列表"></a>8、列表</h3><pre><code class="python"># 无序列表
+- 目录一
+- 目录二
+- 目录三
+#&#39;数字&#39;+&#39;.&#39;+&#39; &#39;+内容
+1. 首页
+2. hello
+
+</code></pre>
+<ul>
+<li>目录一</li>
+<li>目录二</li>
+<li>目录三</li>
+</ul>
+<ol>
+<li>首页 </li>
+<li>hello</li>
+</ol>
+<h3 id="9、表格"><a href="#9、表格" class="headerlink" title="9、表格"></a>9、表格</h3><pre><code class="python"># 右键点击插入表格
+
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>成绩</th>
+<th>语文</th>
+<th>数学</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>33</td>
+<td>33</td>
+</tr>
+</tbody>
+</table>
 
         </div>
         <!-- .entry-content -->
@@ -425,6 +568,23 @@
       <section class="post-squares nextprev">
         
         
+          
+            <div class="post-nepre full next">
+          
+            <a href="/2020/02/08/小记/" rel="next">
+              <div class="background">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/heart74/cdn@1.2/img/wlop/8.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/heart74/cdn@1.2/img/wlop/8.jpg">
+              </div>
+              <span class="label">
+              Next Post</span>
+              <div class="info">
+                <h3>
+                小记</h3>
+                <hr>
+              </div>
+            </a>
+          </div>
+        
       </section>
       
 <div id="vcomments"></div>
@@ -443,11 +603,11 @@
 
       <section class="author-profile">
         <div class="info" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-          <a href="https://heart74.github.io" class="profile gravatar"><img src="https://cdn.jsdelivr.net/gh/heart74/cdn@1.2/img/custom/avatar.jpg" itemprop="image" alt="heart" height="70" width="70"></a>
+          <a href="https://heart74.github.io" class="profile gravatar"><img src="https://cdn.jsdelivr.net/gh/heart74/cdn@1.2/img/custom/avatar.jpg" itemprop="image" alt="heart74" height="70" width="70"></a>
           <div class="meta">
             <span class="title">Author</span>
             <h3 itemprop="name">
-            <a href="https://heart74.github.io" itemprop="url" rel="author">heart</a>
+            <a href="https://heart74.github.io" itemprop="url" rel="author">heart74</a>
             </h3>
           </div>
         </div>
@@ -507,10 +667,10 @@
       <p style="color: #666666;">&copy 2020</p>
     </div>
     <div class="footer-device">
-    <p style="font-family: 'Ubuntu', sans-serif;">
+    <!--<p style="font-family: 'Ubuntu', sans-serif;">
         <span style="color: #b9b9b9;">Theme <a href="https://github.com/honjun/hexo-theme-sakura" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Sakura</a> <i class="iconfont icon-sakura rotating" style="color: #ffc0cb;display:inline-block"></i> by <a href="https://2heng.xin/" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Mashiro</a>&<a href="https://www.hojun.cn/" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Hojun</a>, Powered by Hexo, Hosted by Coding Pages</a>
         </span>
-      </p>
+      </p>-->
     </div>
   </div><!-- .site-info -->
 </footer>
@@ -788,7 +948,7 @@ $(document).ready(function() {
     line-height: 18px !important;
   }
   .aplayer .aplayer-lrc p.aplayer-lrc-current{
-    color: #FF1493;
+    color: rgb(20, 255, 196);
   }
   .aplayer.aplayer-narrow .aplayer-body{
     left: -66px !important;
@@ -806,6 +966,26 @@ $(document).ready(function() {
 </style>
 <meting-js
 
+    id="2796970617"
+
+    server="netease"
+
+    type="playlist"
+
+    fixed="true"
+
+    autoplay="true"
+
+    loop="all"
+
+    order="random"
+
+    preload="auto"
+
+    volume="0.7"
+
+    mutex="true"
+
 </meting-js>
 <script>
   $(function(){
@@ -818,5 +998,15 @@ $(document).ready(function() {
     })
   });
 </script>
-</body>
+  <!--鼠标点击爆炸-->
+   <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
+   <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
+   <script type="text/javascript" src="/js/fireworks.js"></script>
+   <!--鼠标彩色星星-->
+   <script src="/js/cursor.js"></script>
+   <!--动态樱花-->
+   <script src="/js/sakura.js"></script>
+   <!--浏览器搞笑标题-->
+   <script type="text/javascript" src="/js/FunnyTitle.js"></script>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/hibiki.model.json"},"display":{"position":"left","width":200,"height":410},"mobile":{"show":true},"log":false});</script></body>
 </html>
