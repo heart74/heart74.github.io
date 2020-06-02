@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://heart74.github.io/"/>
-  <updated>2020-02-22T09:15:08.259Z</updated>
+  <updated>2020-06-02T09:44:13.132Z</updated>
   <id>https://heart74.github.io/</id>
   
   <author>
@@ -15,6 +15,24 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>hadoop_problems_solve</title>
+    <link href="https://heart74.github.io/2020/06/02/hadoop/"/>
+    <id>https://heart74.github.io/2020/06/02/hadoop/</id>
+    <published>2020-06-02T09:41:53.000Z</published>
+    <updated>2020-06-02T09:44:13.132Z</updated>
+    
+    <summary type="html">
+    
+      我在安装hadoop时遇到并解决的问题，请批评指正！
+    
+    </summary>
+    
+      <category term="技术" scheme="https://heart74.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>MarkDown语法</title>

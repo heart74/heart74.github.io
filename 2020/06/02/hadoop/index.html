@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   
-  <title itemprop="name">心脏i</title>
+  <title itemprop="name">hadoop_problems_solve | 心脏i</title>
   
     <link rel="shortcut icon" href="/images/favicon.jpg">
   
@@ -397,201 +397,244 @@
   </div>
 </header>
 
-      <div class="blank" style="padding-top: 0px;"></div>
+      <link rel="stylesheet" type="text/css" href="/css/sharejs.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
+<div class="pattern-center-blank"></div>
+
+  <div class="pattern-center single-center">
+    <!-- 有配图默认渲染第一张 -->
+    <div class="pattern-attachment-img lazyload" style="background-image: url(https://cdn.jsdelivr.net/gh/heart74/cdn@1.2/img/wlop/2.jpg);" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/heart74/cdn@1.2/img/wlop/2.jpg">
+    </div>
+    <header class="pattern-header single-header">
+      <h1 class="entry-title">
+      hadoop_problems_solve</h1>
+      <p class="entry-census">
+        <span>
+          <a href="https://heart74.github.io">
+            <img src="https://cdn.jsdelivr.net/gh/heart74/cdn@1.2/img/custom/avatar.jpg">
+          </a>
+        </span>
+        <span>
+          <a href="https://heart74.github.io">heart74</a>
+        </span>
+        <span class="bull">
+        ·</span>
+        2020-6-2<span class="bull">
+        ·</span>
+      <span id="busuanzi_value_page_pv"></span>次阅读</p>
+    </header>
+  </div>
+
 <div id="content" class="site-content">
-  
-  <div class="notice" style="margin-top:60px">
-    <i class="iconfont icon-notification">
-    </i>
-    <div class="notice-content">生活太难，快乐就好 (留言和评论功能还未完善，不能使用，见谅哈哈)</div>
-  </div>
-  
-  <div class="top-feature-row">
-  <h1 class="fes-title" style="font-family: 'Ubuntu', sans-serif;">
-  <i class="fa fa-anchor" aria-hidden="true">
-  </i>
-  START:DASH!!</h1>
-  
-  <div class="top-feature-v2">
-    <div class="the-feature square from_left_and_right">
-      <a href="/theme-sakura/" target="_blank">
-        <div class="img">
-          <img src="https://cdn.jsdelivr.net/gh/heart74/cdn@1.1/img/startdash/sakura.md.png">
-        </div>
-        <div class="info">
-          <h3>Sakura</h3>
-          <p>本站 hexo 主题</p>
-        </div>
-      </a>
-    </div>
-  </div>
-  
-  <div class="top-feature-v2">
-    <div class="the-feature square from_left_and_right">
-      <a href="https://space.bilibili.com/392060175" target="_blank">
-        <div class="img">
-          <img src="https://cdn.jsdelivr.net/gh/heart74/cdn@1.1/img/startdash/bilibili.jpg">
-        </div>
-        <div class="info">
-          <h3>Bilibili</h3>
-          <p>博主的b站视频</p>
-        </div>
-      </a>
-    </div>
-  </div>
-  
-  <div class="top-feature-v2">
-    <div class="the-feature square from_left_and_right">
-      <a href="/" target="_blank">
-        <div class="img">
-          <img src="https://cdn.jsdelivr.net/gh/heart74/cdn@1.1/img/startdash/wangshiwu.jpg">
-        </div>
-        <div class="info">
-          <h3>heart的万事屋</h3>
-          <p>技术服务</p>
-        </div>
-      </a>
-    </div>
-  </div>
-  
-</div>
   <div id="primary" class="content-area">
     <main id="main" class="site-main" role="main">
-      <h1 class="main-title" style="font-family: 'Ubuntu', sans-serif;">
-      <i class="fa fa-envira" aria-hidden="true"></i>
-      Discovery</h1>
+      <article id="post-1" class="post-1 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized">
+        <div class="toc"></div>
+        <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
+        
+        <div class="entry-content">
+          <h3 id="hadoop常见疑问及解答"><a href="#hadoop常见疑问及解答" class="headerlink" title="hadoop常见疑问及解答"></a>hadoop常见疑问及解答</h3><h4 id="1、4个配置文件-含注释：单机完全分布都可用"><a href="#1、4个配置文件-含注释：单机完全分布都可用" class="headerlink" title="1、4个配置文件(含注释：单机完全分布都可用)"></a>1、4个配置文件(含注释：单机完全分布都可用)</h4><p><strong>完全分布式部署建议在master上先配置好网络，搭建好单机hadoop后复制整个master虚拟机为slave1，2…n</strong></p>
+<p><strong>不过不太清楚单机和伪分布式的区别呢</strong></p>
+<ul>
+<li><p>core-site.xml</p>
+<pre><code class="xml">&lt;configuration&gt;
+    &lt;!-- 这个属性用来指定namenode的hdfs协议的文件系统通信地址，可以指定一个主机+端口，也可以指定为一个namenode服务（这个服务内部可以有多台namenode实现hadoop的namenode服务 --&gt;
+    &lt;property&gt;
+        &lt;name&gt;fs.defaultFS&lt;/name&gt;
+        &lt;value&gt;hdfs://master:9000&lt;/value&gt;  &lt;!--master为自己的主机名后面的master同--&gt;
+    &lt;/property&gt;
+
+    &lt;!-- 指定hadoop运行时产生文件的存储路径 tmp 提前创建好，前面用file:表示是本地目录。hadoop在运行过程中肯定会有临时文件或缓冲之类的，必然需要一个临时目录来存放，这里就是指定这个的 --&gt;
+    &lt;property&gt;
+        &lt;name&gt;hadoop.tmp.dir&lt;/name&gt;
+        &lt;value&gt;/******/hadoop/tmp&lt;/value&gt;    &lt;!--/******/为根目录到自己的hadoop安装目录--&gt;
+    &lt;/property&gt;
+&lt;/configuration&gt;
+</code></pre>
+</li>
+<li><p>hdfs-site.xml </p>
+<pre><code class="xml">&lt;property&gt;
+    &lt;!--设置hdfs副本数量：默认为3--&gt;
+    &lt;name&gt;dfs.replication&lt;/name&gt;
+    &lt;value&gt;2&lt;/value&gt;
+&lt;/property&gt;
+&lt;!-- namenode数据的存放地点。也就是namenode元数据存放的地方，记录了hdfs系统中文件的元数据--&gt;
+&lt;property&gt;
+     &lt;name&gt;dfs.name.dir&lt;/name&gt;
+     &lt;value&gt;/*******/hadoop/hdfs/name&lt;/value&gt; &lt;!--/******/为根目录到自己的hadoop安装目录--&gt;
+&lt;/property&gt;
+&lt;property&gt;
+    &lt;!-- datanode数据的存放地点。也就是block块存放的目录了--&gt;
+     &lt;name&gt;dfs.data.dir&lt;/name&gt;
+    &lt;value&gt;/******/hadoop/hdfs/data&lt;/value&gt;  &lt;!--/******/为根目录到自己的hadoop安装目录--&gt;
+&lt;/property&gt;
+
+</code></pre>
+</li>
+<li><p>mapred-site.xml</p>
+<pre><code class="xml">&lt;!-- 通知框架MR使用YARN --&gt;
+&lt;property&gt;
+        &lt;name&gt;mapreduce.framework.name&lt;/name&gt;
+        &lt;value&gt;yarn&lt;/value&gt;
+&lt;/property&gt;
+&lt;!---- 指定mr框架jobhistory的内部通讯地址 --&gt;
+&lt;property&gt;
+        &lt;name&gt;mapreduce.jobhistory.address&lt;/name&gt;
+        &lt;value&gt;master:10020&lt;/value&gt;
+&lt;/property&gt;
+&lt;!---- 指定mr框架web查看的地址 --&gt;
+&lt;property&gt;
+         &lt;name&gt;mapreduce.jobhistory.webapp.address&lt;/name&gt;
+         &lt;value&gt;master:19888&lt;/value&gt;
+&lt;/property&gt;
+</code></pre>
+</li>
+<li><p>yarn-site.xml</p>
+</li>
+</ul>
+<pre><code class="xml">&lt;!--这个文件就是配置资源管理系统yarn了，其中主要指定了一些节点资源管理器nodemanager，以及总资源管理器resourcemanager的配置。可以看到这个配置中，跟mapreduce框架是相关的。可见yarn首先是为了支持mapreduce这个模型，之后很多其他的框架都是基于mapreduce以及yarn的功能基础上开发出来的。--&gt;
+&lt;!--- 启用的资源调度器主类 --&gt;
+&lt;property&gt;
+    &lt;name&gt;yarn.nodemanager.aux-services.mapreduce.shuffle.class&lt;/name&gt;
+    &lt;value&gt;org.apache.mapred.ShuffleHandler&lt;/value&gt;
+&lt;/property&gt;
+&lt;!--- ResourceManager 对客户端暴露的地址。客户端通过该地址向RM提交应用程序，杀死应用程序等 --&gt;
+&lt;property&gt;
+    &lt;name&gt;yarn.resourcemanager.address&lt;/name&gt;
+    &lt;value&gt;master:8032&lt;/value&gt;
+&lt;/property&gt;
+&lt;!-- ResourceManager 对ApplicationMaster暴露的访问地址。ApplicationMaster通过该地址向RM申请资源、释放资源等 --&gt;
+&lt;property&gt;
+    &lt;name&gt;yarn.resourcemanager.scheduler.address&lt;/name&gt;
+    &lt;value&gt;master:8030&lt;/value&gt;
+&lt;/property&gt;
+&lt;!-- ResourceManager 对NodeManager暴露的地址.。NodeManager通过该地址向RM汇报心跳，领取任务等 --&gt;
+&lt;property&gt;
+    &lt;name&gt;yarn.resourcemanager.resource-tracker.address&lt;/name&gt;
+    &lt;value&gt;master:8031&lt;/value&gt;
+&lt;/property&gt;
+&lt;!-- 对管理员暴露的访问地址。管理员通过该地址向RM发送管理命令等 --&gt;
+&lt;property&gt;
+    &lt;name&gt;yarn.resourcemanager.admin.address&lt;/name&gt;
+    &lt;value&gt;master:8033&lt;/value&gt;
+&lt;/property&gt;
+&lt;!-- ResourceManager对外web ui地址。用户可通过该地址在浏览器中查看集群各类信息 --&gt;
+&lt;property&gt;
+    &lt;name&gt;yarn.resourcemanager.webapp.address&lt;/name&gt;
+    &lt;value&gt;master:8088&lt;/value&gt;
+&lt;/property&gt;
+&lt;!-- NodeManager上运行的附属服务。需配置成mapreduce_shuffle，才可运行MapReduce程序 --&gt;
+&lt;property&gt;
+    &lt;name&gt;yarn.nodemanager.aux-services&lt;/name&gt;
+    &lt;value&gt;mapreduce_shuffle&lt;/value&gt;
+&lt;/property&gt;
+</code></pre>
+<h4 id="2、hdfs常用操作"><a href="#2、hdfs常用操作" class="headerlink" title="2、hdfs常用操作"></a>2、hdfs常用操作</h4><pre><code class="shell"># 查看帮助：
+hadoop fs -help &lt;cmd&gt;
+# 上传：
+hadoop fs -put &lt;linux上文件&gt;  &lt;hdfs上的路径&gt;
+# 查看文件内容：
+hadoop fs -cat &lt;hdfs上的路径&gt;
+# 查看文件列表：
+hadoop fs -ls /
+# 下载文件：
+hadoop fs -get &lt;hdfs上的路径&gt;  &lt;linux上文件&gt;
+</code></pre>
+<h4 id="3、stop-yarn-sh-时NodeManager-stop-异常"><a href="#3、stop-yarn-sh-时NodeManager-stop-异常" class="headerlink" title="3、stop-yarn.sh 时NodeManager stop 异常"></a>3、stop-yarn.sh 时NodeManager stop 异常</h4><p><strong>报错如下：</strong></p>
+<pre><code class="shell">slave1: nodemanager did not stop gracefully after 5 seconds: killing with kill -9
+</code></pre>
+<p><strong>查阅好多资料结论：官网未解决</strong></p>
+<h4 id="4、jps命令后slave1-slave2上不出现datanode进程，stop-all-sh时也无datanode去stop（单机和伪分布式则是master里没有datanode进程）"><a href="#4、jps命令后slave1-slave2上不出现datanode进程，stop-all-sh时也无datanode去stop（单机和伪分布式则是master里没有datanode进程）" class="headerlink" title="4、jps命令后slave1,slave2上不出现datanode进程，stop-all.sh时也无datanode去stop（单机和伪分布式则是master里没有datanode进程）"></a>4、jps命令后slave1,slave2上不出现datanode进程，stop-all.sh时也无datanode去stop（单机和伪分布式则是master里没有datanode进程）</h4><p><strong>解决：</strong></p>
+<pre><code class="shell">原因可能是 hdfs/data/current/VERSION 和 hdfs/name/current/VERSION 的clusterid 不同 故：
+
+1、修改虚拟机master上：hadoop/hdfs/data/current/VERSION 文件里的clusterid 与  hadoop/hdfs/name/current/VERSION  clusterid 相同
+2、修改所有的slave上：hadoop/hdfs/data/current/VERSION 文件里的clusterid与master上 hadoop/hdfs/name/current/VERSION  clusterid 相同
+如果是单机和伪分布式hadoop只需执行第一步
+</code></pre>
+<h4 id="5、stop-all-sh后浏览器localhost-50070的datanode界面只随机显示一个slave和datanode"><a href="#5、stop-all-sh后浏览器localhost-50070的datanode界面只随机显示一个slave和datanode" class="headerlink" title="5、stop-all.sh后浏览器localhost:50070的datanode界面只随机显示一个slave和datanode"></a>5、stop-all.sh后浏览器localhost:50070的datanode界面只随机显示一个slave和datanode</h4><p><strong>解决:</strong></p>
+<pre><code class="shell">因为slave们是从master完全复制过来的，故hadoop/hdfs/data/current/VERSION 文件里的datanodeuuid和storageID，都相同,slave之间会产生冲突(来自网络),故：    
+如果有两个slave则只需修改一个slave中hadoop/hdfs/data/current/VERSION 文件里的datanodeuuid和storageID，两者都是字母数字的组合，随便修改几个数字字母为别的值就可
+</code></pre>
+<h5 id="6、这些都是我自己遇到并解决的问题，后续应该还会持续更新敬请期待！博客首页有联系方式欢迎提问（评论功能暂未开通）"><a href="#6、这些都是我自己遇到并解决的问题，后续应该还会持续更新敬请期待！博客首页有联系方式欢迎提问（评论功能暂未开通）" class="headerlink" title="6、这些都是我自己遇到并解决的问题，后续应该还会持续更新敬请期待！博客首页有联系方式欢迎提问（评论功能暂未开通）"></a>6、这些都是我自己遇到并解决的问题，后续应该还会持续更新敬请期待！博客首页有联系方式欢迎提问（评论功能暂未开通）</h5>
+        </div>
+        <!-- .entry-content -->
+        <div class="single-reward">
+          <div class="reward-open">赏
+            <div class="reward-main">
+              <ul class="reward-row">
+                <li class="alipay-code"><img src="https://cdn.jsdelivr.net/gh/heart74/cdn@1.1/img/custom/donate/AliPayQR.jpg"></li>
+                <li class="wechat-code"><img src="https://cdn.jsdelivr.net/gh/heart74/cdn@1.1/img/custom/donate/WeChatQR.png"></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div style="text-align:center; width: 100%" class="social-share share-mobile" data-disabled="diandian, tencent"></div>
+        <footer class="post-footer">
+          <div class="post-lincenses"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="nofollow"><i class="fa fa-creative-commons" aria-hidden="true"></i>心脏i</a></div>
+          <div class="post-tags">
+          </div>
+          <div class="post-share">
+            <div class="social-share sharehidden share-component"></div>
+            <i class="iconfont show-share icon-forward"></i>
+          </div>
+        </footer><!-- .entry-footer -->
+      </article>
+      <!-- #post-## -->
+      <div class="toc" style="background: none;"></div>
+      <section class="post-squares nextprev">
+        
+        
+          
+            <div class="post-nepre full next">
+          
+            <a href="/2020/02/22/MarkDown语法/" rel="next">
+              <div class="background">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/heart74/cdn@1.2/img/wlop/6.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/heart74/cdn@1.2/img/wlop/6.jpg">
+              </div>
+              <span class="label">
+              Next Post</span>
+              <div class="info">
+                <h3>
+                MarkDown语法</h3>
+                <hr>
+              </div>
+            </a>
+          </div>
+        
+      </section>
       
-  <!-- 首页默认取最最新文章集 -->
-  
-    
-<article  class="post post-list-thumb post-list-thumb-left"  class="post post-list-thumb" itemscope="" itemtype="http://schema.org/BlogPosting">
+<div id="vcomments"></div>
+<script>
+  window.onload = function(){
+      var valine = new Valine();
+      valine.init({
+        el: '#vcomments',
+        appId: "GyC3NzMvd0hT9Yyd2hYIC0MN-gzGzoHsz",
+        appKey: "mgOpfzbkHYqU92CV4IDlAUHQ",
+        path: window.location.pathname,
+        placeholder: "你是我一生只会遇见一次的惊喜 ..."
+      })
+  }
+</script>
 
-  <div class="post-thumb">
-    <a href="/2020/06/02/hadoop/">
-      <img class="lazyload" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/heart74/cdn@1.2/img/wlop/2.jpg">
-    </a>
-  </div>
-  <div class="post-content-wrap">
-    <div class="post-content">
-      <div class="post-date">
-        <i class="iconfont icon-time">
-        </i>2020-6-2 17:06</div>
-      <a href="/2020/06/02/hadoop/" class="post-title">
-        <h3>hadoop_problems_solve</h3>
-      </a>
-      <div class="post-meta">
-        <span><i class="fa fa-tags"></i>
-        
-        </span>
-        <span>
-          <i class="iconfont icon-file"></i>
-          
-            <a href="/categories/技术/">技术</a>
-          
-        </span>
-      </div>
-      <div class="float-content">
-        <p>我在安装hadoop时遇到并解决的问题，请批评指正！</p>
-        <div class="post-bottom">
-          <a href="/2020/06/02/hadoop/" class="button-normal">
-            <i class="iconfont icon-caidan"></i>
-          </a>
+      <section class="author-profile">
+        <div class="info" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <a href="https://heart74.github.io" class="profile gravatar"><img src="https://cdn.jsdelivr.net/gh/heart74/cdn@1.2/img/custom/avatar.jpg" itemprop="image" alt="heart74" height="70" width="70"></a>
+          <div class="meta">
+            <span class="title">Author</span>
+            <h3 itemprop="name">
+            <a href="https://heart74.github.io" itemprop="url" rel="author">heart74</a>
+            </h3>
+          </div>
         </div>
-      </div>
-    </div>
-  </div>
-</article>
-  
-    
-<article  class="post post-list-thumb" itemscope="" itemtype="http://schema.org/BlogPosting">
-
-  <div class="post-thumb">
-    <a href="/2020/02/22/MarkDown语法/">
-      <img class="lazyload" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/heart74/cdn@1.2/img/wlop/6.jpg">
-    </a>
-  </div>
-  <div class="post-content-wrap">
-    <div class="post-content">
-      <div class="post-date">
-        <i class="iconfont icon-time">
-        </i>2020-2-22 17:02</div>
-      <a href="/2020/02/22/MarkDown语法/" class="post-title">
-        <h3>MarkDown语法</h3>
-      </a>
-      <div class="post-meta">
-        <span><i class="fa fa-tags"></i>
-        
-            <a href="/tags/悦读/">悦读<em>·</em></a>
-          
-        </span>
-        <span>
-          <i class="iconfont icon-file"></i>
-          
-            <a href="/categories/技术/">技术</a>
-          
-        </span>
-      </div>
-      <div class="float-content">
-        <p>md的一些语法 分享下</p>
-        <div class="post-bottom">
-          <a href="/2020/02/22/MarkDown语法/" class="button-normal">
-            <i class="iconfont icon-caidan"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</article>
-  
-    
-<article  class="post post-list-thumb post-list-thumb-left"  class="post post-list-thumb" itemscope="" itemtype="http://schema.org/BlogPosting">
-
-  <div class="post-thumb">
-    <a href="/2020/02/08/小记/">
-      <img class="lazyload" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/heart74/cdn@1.2/img/wlop/8.jpg">
-    </a>
-  </div>
-  <div class="post-content-wrap">
-    <div class="post-content">
-      <div class="post-date">
-        <i class="iconfont icon-time">
-        </i>2020-2-8 13:02</div>
-      <a href="/2020/02/08/小记/" class="post-title">
-        <h3>小记</h3>
-      </a>
-      <div class="post-meta">
-        <span><i class="fa fa-tags"></i>
-        
-            <a href="/tags/悦读/">悦读<em>·</em></a>
-          
-        </span>
-        <span>
-          <i class="iconfont icon-file"></i>
-          
-            <a href="/categories/生活/">生活</a>
-          
-        </span>
-      </div>
-      <div class="float-content">
-        <p>第一次搭建个人博客 花里胡哨的快乐</p>
-        <div class="post-bottom">
-          <a href="/2020/02/08/小记/" class="button-normal">
-            <i class="iconfont icon-caidan"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</article>
-  
-
-
-    </main>
-      <!-- 首页默认取最最新文章集 -->
-    <!--  -->
-  </div>
-  
+        <hr>
+        <p><i class="iconfont icon-write"></i>I trust nobody and nobody trusts me</p>
+      </section>
+    </main><!-- #main -->
+  </div><!-- #primary -->
 </div>
+
+
 
     </div>    
     <div class="ins-search">
