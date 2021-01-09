@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://heart74.github.io/"/>
-  <updated>2020-06-02T09:44:13.132Z</updated>
+  <updated>2021-01-09T04:11:05.583Z</updated>
   <id>https://heart74.github.io/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Information Visualation</title>
+    <link href="https://heart74.github.io/2021/01/09/Information-Visualation/"/>
+    <id>https://heart74.github.io/2021/01/09/Information-Visualation/</id>
+    <published>2021-01-09T04:08:05.000Z</published>
+    <updated>2021-01-09T04:11:05.583Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;echarts&quot;&gt;&lt;a href=&quot;#echarts&quot; class=&quot;headerlink&quot; title=&quot;echarts&quot;&gt;&lt;/a&gt;echarts&lt;/h3&gt;&lt;p&gt;&lt;a href=&quot;https://heart74.github.io/echarts&quot;&gt;信息可视化
+        
+      
+    
+    </summary>
+    
+      <category term="技术" scheme="https://heart74.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>hadoop_problems_solve</title>
