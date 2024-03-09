@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://heart74.github.io/"/>
-  <updated>2024-03-09T07:48:42.088Z</updated>
+  <updated>2024-03-09T08:17:48.275Z</updated>
   <id>https://heart74.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://heart74.github.io/2023/09/22/transformer/"/>
     <id>https://heart74.github.io/2023/09/22/transformer/</id>
     <published>2023-09-22T11:45:13.000Z</published>
-    <updated>2024-03-09T07:48:42.088Z</updated>
+    <updated>2024-03-09T08:17:48.275Z</updated>
     
     <summary type="html">
     
@@ -29,7 +29,27 @@
     
     </summary>
     
-      <category term="深度学习" scheme="https://heart74.github.io/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+      <category term="算法" scheme="https://heart74.github.io/categories/%E7%AE%97%E6%B3%95/"/>
+    
+    
+      <category term="学习" scheme="https://heart74.github.io/tags/%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>blog书写说明</title>
+    <link href="https://heart74.github.io/2022/05/10/blog%E4%B9%A6%E5%86%99%E8%AF%B4%E6%98%8E/"/>
+    <id>https://heart74.github.io/2022/05/10/blog书写说明/</id>
+    <published>2022-05-10T07:58:39.000Z</published>
+    <updated>2024-03-09T08:37:46.058Z</updated>
+    
+    <summary type="html">
+    
+      博客书写时顶部config说明
+    
+    </summary>
+    
+      <category term="技术" scheme="https://heart74.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
     
     
   </entry>
@@ -39,7 +59,7 @@
     <link href="https://heart74.github.io/2022/03/09/npm-hexo-install/"/>
     <id>https://heart74.github.io/2022/03/09/npm-hexo-install/</id>
     <published>2022-03-09T07:35:14.000Z</published>
-    <updated>2024-03-09T07:48:49.478Z</updated>
+    <updated>2024-03-09T07:58:44.624Z</updated>
     
     <summary type="html">
     

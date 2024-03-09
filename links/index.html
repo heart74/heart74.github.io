@@ -252,6 +252,13 @@
                       </li>
                     
                       <li>
+                        <a href="/categories/算法/">
+                          <i class="fa fa-pencil" aria-hidden="true"></i>
+                          算法
+                        </a>
+                      </li>
+                    
+                      <li>
                         <a href="/categories/生活/">
                           <i class="fa fa-file-text-o" aria-hidden="true"></i>
                           生活
@@ -490,20 +497,21 @@
       </div>
     
     
-<div id="vcomments"></div>
-<script>
-  window.onload = function(){
+  <div id="vcomments"></div>
+  <script>
+    window.onload = function () {
       var valine = new Valine();
       valine.init({
         el: '#vcomments',
         appId: "yQoq6TBuBk4ySvbqW9mmQW2K-gzGzoHsz",
         appKey: "Wh5yYCom46yIBSbCr4xsM7An",
         path: window.location.pathname,
-        placeholder: "你是我一生只会遇见一次的惊喜 ..."
+        placeholder: "你是我一生只会遇见一次的惊喜 ...",
+        serverURLs: 'https://yQoq6TBu.api.lncldglobal.com'
       })
-  }
-</script>
-
+    }
+  </script>
+  
     <div style="text-align:center; width: 100%" class="social-share share-mobile" data-disabled="diandian, tencent"></div>
     <footer class="post-footer">
       <div class="post-lincenses"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="nofollow"><i class="fa fa-creative-commons" aria-hidden="true"></i> 知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a></div>
@@ -733,6 +741,13 @@ $(document).ready(function() {
                 <a href="/categories/技术/">
                   <i class="fa fa-code" aria-hidden="true"></i>
                   技术
+                </a>
+              </li>
+            
+              <li>
+                <a href="/categories/算法/">
+                  <i class="fa fa-pencil" aria-hidden="true"></i>
+                  算法
                 </a>
               </li>
             
