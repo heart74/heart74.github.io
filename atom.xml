@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://heart74.github.io/"/>
-  <updated>2021-01-10T05:49:51.000Z</updated>
+  <updated>2024-03-09T07:48:42.088Z</updated>
   <id>https://heart74.github.io/</id>
   
   <author>
@@ -15,6 +15,42 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>transformer</title>
+    <link href="https://heart74.github.io/2023/09/22/transformer/"/>
+    <id>https://heart74.github.io/2023/09/22/transformer/</id>
+    <published>2023-09-22T11:45:13.000Z</published>
+    <updated>2024-03-09T07:48:42.088Z</updated>
+    
+    <summary type="html">
+    
+      transformer学习笔记
+    
+    </summary>
+    
+      <category term="深度学习" scheme="https://heart74.github.io/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>npm和hexo安装及使用</title>
+    <link href="https://heart74.github.io/2022/03/09/npm-hexo-install/"/>
+    <id>https://heart74.github.io/2022/03/09/npm-hexo-install/</id>
+    <published>2022-03-09T07:35:14.000Z</published>
+    <updated>2024-03-09T07:48:49.478Z</updated>
+    
+    <summary type="html">
+    
+      安装版本问题很坑
+    
+    </summary>
+    
+      <category term="技术" scheme="https://heart74.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>Information Visualation</title>
@@ -54,24 +90,6 @@
     </summary>
     
       <category term="技术" scheme="https://heart74.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>transformer</title>
-    <link href="https://heart74.github.io/2020/03/22/transformer/"/>
-    <id>https://heart74.github.io/2020/03/22/transformer/</id>
-    <published>2020-03-22T11:45:13.000Z</published>
-    <updated>2024-03-08T16:01:47.396Z</updated>
-    
-    <summary type="html">
-    
-      transformer学习笔记
-    
-    </summary>
-    
-      <category term="深度学习" scheme="https://heart74.github.io/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
     
     
   </entry>

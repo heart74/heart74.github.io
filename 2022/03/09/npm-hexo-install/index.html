@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   
-  <title itemprop="name">Category: 深度学习 | 心脏i</title>
+  <title itemprop="name">npm和hexo安装及使用 | 心脏i</title>
   
     <link rel="shortcut icon" href="/images/favicon.jpg">
   
@@ -397,105 +397,159 @@
   </div>
 </header>
 
-      
+      <link rel="stylesheet" type="text/css" href="/css/sharejs.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
 <div class="pattern-center-blank"></div>
-<div class="pattern-center ">
-  <div class="pattern-attachment-img">
-    <img data-src="深度学习.img" class="lazyload" onerror="imgError(this,3)" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;">
+
+  <div class="pattern-center single-center">
+    <!-- 有配图默认渲染第一张 -->
+    <div class="pattern-attachment-img lazyload" style="background-image: url(https://cdn.jsdelivr.net/gh/heart74/cdn@1.2/img/wlop/8.jpg);" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/heart74/cdn@1.2/img/wlop/8.jpg">
+    </div>
+    <header class="pattern-header single-header">
+      <h1 class="entry-title">
+      npm和hexo安装及使用</h1>
+      <p class="entry-census">
+        <span>
+          <a href="https://heart74.github.io">
+            <img src="https://cdn.jsdelivr.net/gh/heart74/cdn@1.2/img/custom/avatar.jpg">
+          </a>
+        </span>
+        <span>
+          <a href="https://heart74.github.io">heart74</a>
+        </span>
+        <span class="bull">
+        ·</span>
+        2022-3-9<span class="bull">
+        ·</span>
+      <span id="busuanzi_value_page_pv"></span>次阅读</p>
+    </header>
   </div>
-  <header class="pattern-header ">
-    <h1 class="cat-title">深度学习.zh</h1>
-    <span class="cat-des">
-      <p>深度学习.en</p>
-    </span>
-  </header>
-</div>
+
 <div id="content" class="site-content">
   <div id="primary" class="content-area">
     <main id="main" class="site-main" role="main">
-      
-  <!-- 首页默认取最最新文章集 -->
-  
-    <article class="post post-list" itemscope="" itemtype="http://schema.org/BlogPosting">
-  <div class="post-entry">
-    <div class="feature">
-      <a href="/2023/09/22/transformer/">
-        <div class="overlay">
-          <i class="iconfont icon-text">
-          </i>
+      <article id="post-1" class="post-1 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized">
+        <div class="toc"></div>
+        <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
+        
+        <div class="entry-content">
+          <h3 id="当前博客npm和hexo版本"><a href="#当前博客npm和hexo版本" class="headerlink" title="当前博客npm和hexo版本"></a>当前博客npm和hexo版本</h3><p><img src="https://cdn.jsdelivr.net/gh/heart74/PicGo/img/202403091538902.png" alt="image-20240309153839760"></p>
+<h3 id="npm安装："><a href="#npm安装：" class="headerlink" title="npm安装："></a>npm安装：</h3><p>在官网找上图指定版本安装即可</p>
+<h3 id="hexo-安装"><a href="#hexo-安装" class="headerlink" title="hexo 安装"></a>hexo 安装</h3><p>npm查看hexo cli版本命令:</p>
+<pre><code class="shell">npm view hexo-cli versions
+</code></pre>
+<p>安装指定版本hexo-cli:</p>
+<pre><code class="shell">npm install -g hexo-cli@4.2.0
+</code></pre>
+<h3 id="hexo常用命令"><a href="#hexo常用命令" class="headerlink" title="hexo常用命令"></a>hexo常用命令</h3><pre><code class="shell">hexo new blog_nname  # 创建博客.md
+hexo g        # 渲染并生成页面
+hexo s         # 本地服务预览
+hexo d            # 部署
+hexo clean #清除缓存，若是网页正常情况下可以忽略这条命令
+</code></pre>
+<h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><p>有两个配置文件 一个主题的config.yml一个站点的config.yml，和github关联操作：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/heart74/PicGo/img/202403091544431.png" alt="image-20240309154428333"></p>
+<h3 id="关联域名"><a href="#关联域名" class="headerlink" title="关联域名"></a>关联域名</h3><p>通过github的ip和自己的域名绑定即可</p>
+<h3 id="更换主题"><a href="#更换主题" class="headerlink" title="更换主题"></a>更换主题</h3><p>在blog目录中的themes文件夹中查看你自己主题是什么，下载主题文件并在站点的配置文件config.yaml修改名称即可</p>
+<h3 id="图床"><a href="#图床" class="headerlink" title="图床"></a>图床</h3><p>目前使用github，也可以使用其他图床，工具是typora + PicGo</p>
+
         </div>
-        <img width="150" height="150" src="https://cdn.jsdelivr.net/gh/heart74/cdn@1.2/img/wlop/8.jpg" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" >
-      </a>
-    </div>
-    <h1 class="entry-title">
-    <a href="/2023/09/22/transformer/">
-    transformer</a>
-    </h1>
-    <div class="p-time">
-      <i class="iconfont icon-time">
-      </i>
-    2023-9-22</div>
-    <p>
-    transformer学习笔记</p>
-    <footer class="entry-footer">
-      <div class="post-more">
-        <a href="/2023/09/22/transformer/">
-          <i class="iconfont icon-caidan">
-          </i>
-        </a>
-      </div>
-    </footer>
-  </div>
-  <hr>
-</article>
-  
+        <!-- .entry-content -->
+        <div class="single-reward">
+          <div class="reward-open">赏
+            <div class="reward-main">
+              <ul class="reward-row">
+                <li class="alipay-code"><img src="https://cdn.jsdelivr.net/gh/heart74/cdn@1.1/img/custom/donate/AliPayQR.jpg"></li>
+                <li class="wechat-code"><img src="https://cdn.jsdelivr.net/gh/heart74/cdn@1.1/img/custom/donate/WeChatQR.png"></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div style="text-align:center; width: 100%" class="social-share share-mobile" data-disabled="diandian, tencent"></div>
+        <footer class="post-footer">
+          <div class="post-lincenses"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="nofollow"><i class="fa fa-creative-commons" aria-hidden="true"></i>心脏i</a></div>
+          <div class="post-tags">
+          </div>
+          <div class="post-share">
+            <div class="social-share sharehidden share-component"></div>
+            <i class="iconfont show-share icon-forward"></i>
+          </div>
+        </footer><!-- .entry-footer -->
+      </article>
+      <!-- #post-## -->
+      <div class="toc" style="background: none;"></div>
+      <section class="post-squares nextprev">
+        
+          
+            <div class="post-nepre half previous">
+          
+            <a href="/2023/09/22/transformer/" rel="prev">
+              <div class="background">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/heart74/cdn@1.2/img/wlop/8.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/heart74/cdn@1.2/img/wlop/8.jpg">
+              </div>
+              <span class="label">
+              Previous Post</span>
+              <div class="info">
+                <h3>
+                transformer</h3>
+                <hr>
+              </div>
+            </a>
+          </div>
+        
+        
+          
+            <div class="post-nepre half next">
+          
+            <a href="/2021/01/09/InformationVisualization/" rel="next">
+              <div class="background">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/heart74/PicGo/img/bg.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/heart74/PicGo/img/bg.jpg">
+              </div>
+              <span class="label">
+              Next Post</span>
+              <div class="info">
+                <h3>
+                Information Visualation</h3>
+                <hr>
+              </div>
+            </a>
+          </div>
+        
+      </section>
+      
+<div id="vcomments"></div>
+<script>
+  window.onload = function(){
+      var valine = new Valine();
+      valine.init({
+        el: '#vcomments',
+        appId: "yQoq6TBuBk4ySvbqW9mmQW2K-gzGzoHsz",
+        appKey: "Wh5yYCom46yIBSbCr4xsM7An",
+        path: window.location.pathname,
+        placeholder: "你是我一生只会遇见一次的惊喜 ..."
+      })
+  }
+</script>
 
-
-      <div class="clearer">
-      </div>
-    </main>
-    <!--  -->
-    
-  </div>
+      <section class="author-profile">
+        <div class="info" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <a href="https://heart74.github.io" class="profile gravatar"><img src="https://cdn.jsdelivr.net/gh/heart74/cdn@1.2/img/custom/avatar.jpg" itemprop="image" alt="heart74" height="70" width="70"></a>
+          <div class="meta">
+            <span class="title">Author</span>
+            <h3 itemprop="name">
+            <a href="https://heart74.github.io" itemprop="url" rel="author">heart74</a>
+            </h3>
+          </div>
+        </div>
+        <hr>
+        <p><i class="iconfont icon-write"></i>I trust nobody and nobody trusts me</p>
+      </section>
+    </main><!-- #main -->
+  </div><!-- #primary -->
 </div>
 
-<!-- 
-  
-    <article class="post post-list" itemscope="" itemtype="http://schema.org/BlogPosting">
-  <div class="post-entry">
-    <div class="feature">
-      <a href="/2023/09/22/transformer/">
-        <div class="overlay">
-          <i class="iconfont icon-text">
-          </i>
-        </div>
-        <img width="150" height="150" src="https://cdn.jsdelivr.net/gh/heart74/cdn@1.2/img/wlop/8.jpg" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" >
-      </a>
-    </div>
-    <h1 class="entry-title">
-    <a href="/2023/09/22/transformer/">
-    transformer</a>
-    </h1>
-    <div class="p-time">
-      <i class="iconfont icon-time">
-      </i>
-    2023-9-22</div>
-    <p>
-    transformer学习笔记</p>
-    <footer class="entry-footer">
-      <div class="post-more">
-        <a href="/2023/09/22/transformer/">
-          <i class="iconfont icon-caidan">
-          </i>
-        </a>
-      </div>
-    </footer>
-  </div>
-  <hr>
-</article>
-  
 
- -->
+
     </div>    
     <div class="ins-search">
     <div class="ins-search-mask"></div>
