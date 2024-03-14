@@ -410,7 +410,7 @@
 
   <div class="pattern-center single-center">
     <!-- 有配图默认渲染第一张 -->
-    <div class="pattern-attachment-img lazyload" style="background-image: url(https://cdn.jsdelivr.net/gh/heart74/cdn@1.2/img/wlop/1.jpg);" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/heart74/cdn@1.2/img/wlop/1.jpg">
+    <div class="pattern-attachment-img lazyload" style="background-image: url(https://cdn.jsdelivr.net/gh/heart74/PicGo/img/202403141942225.png);" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/heart74/PicGo/img/202403141942225.png">
     </div>
     <header class="pattern-header single-header">
       <h1 class="entry-title">
@@ -440,8 +440,42 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-          <h3 id="Attention机制"><a href="#Attention机制" class="headerlink" title="Attention机制"></a>Attention机制</h3><pre><code class="python">what is self attention
-</code></pre>
+          <p>传统的序列转录模型，基于复杂的循环或者卷积，主流模型，trans都给换成多头注意力了</p>
+<h2 id="模型架构"><a href="#模型架构" class="headerlink" title="模型架构"></a>模型架构</h2><p><em>**</em><img src="https://cdn.jsdelivr.net/gh/heart74/PicGo/img/202403141942225.png" alt="image-20240314194213037"></p>
+<h3 id="编码器"><a href="#编码器" class="headerlink" title="编码器"></a>编码器</h3><p>6个layer，一个层有两个子层，一个是多头注意力层，一个是MLP，对每一个子层都用了残差连接，最后使用了layer normalization.</p>
+<p>output of 子层 LayerNorm(x + Sublayer(x))。残差需要输入和输出一样大小，简单起见每一个层的输出维度都是512。和CNN MLP不一样，要么维度下减，channel增加。</p>
+<h4 id="layer-norm-和-batch-norm"><a href="#layer-norm-和-batch-norm" class="headerlink" title="layer norm 和 batch norm"></a>layer norm 和 batch norm</h4><p><img src="https://cdn.jsdelivr.net/gh/heart74/PicGo/img/202403141954855.png" alt="image-20240314195441704"></p>
+<p>图中行代表样本，每一列一个特征，左图是BN，右图是LN（二维图像）</p>
+<p><img src="https://cdn.jsdelivr.net/gh/heart74/PicGo/img/202403141957651.png" alt="image-20240314195740471"></p>
+<p>图中左边蓝色线是batch norm，取一个特征，把他样本里所有元素都搞出来，归一化。layer norm（黄线）针对一个样本，所有特征，做归一化</p>
+<p><strong>seq是序列长度</strong>，一个样本是一个序列，类比图像里的通道数，feature可以类比图像的（h*w = d）</p>
+<h5 id="batch-norm"><a href="#batch-norm" class="headerlink" title="batch norm"></a>batch norm</h5><p>在一个batch里，在某个feature得维度（样本方向），把均值变成0，方差变成1；还会学习$\lambda和\beta$，任意方差为某个值，均值为某个值</p>
+<h5 id="layer-norm"><a href="#layer-norm" class="headerlink" title="layer norm"></a>layer norm</h5><p>在样本的维度，特征方向，做归一化</p>
+<h3 id="解码器"><a href="#解码器" class="headerlink" title="解码器"></a>解码器</h3><p>和编码器不一样的是，用了第三个子层（掩码多头注意力层），解码器做的是自回归（当前输入是过去时刻的输出），但是在注意力机制里，每次能看到完整的输入，所以要把t时刻以后的mask起来。</p>
+<h3 id="Attention机制"><a href="#Attention机制" class="headerlink" title="Attention机制"></a>Attention机制</h3><p>注意力函数是将一个query和一些key-value映射成一个输出的一个函数，都是向量，output是value的加权和。输出的维度和value的维度一致。每一个value的权重，是value对应的key和查询的query的相似度计算出来的</p>
+<p><img src="https://cdn.jsdelivr.net/gh/heart74/PicGo/img/202403142014175.png" alt="image-20240314201400088"></p>
+<p>如图所示，value的靠左边的权重（粗线条），由于query和左边Key更相似，所以更大，output是V的加权和</p>
+<h4 id="Scaled-Dot-Product-Attention"><a href="#Scaled-Dot-Product-Attention" class="headerlink" title="Scaled Dot-Product Attention"></a>Scaled Dot-Product Attention</h4><p><img src="https://cdn.jsdelivr.net/gh/heart74/PicGo/img/202403142034770.png" alt="image-20240314203419696"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/heart74/PicGo/img/202403142014323.png" alt="image-20240314201444241"></p>
+<p>两个向量做内积，值越大，越相似。所以这里V的权重是Q和K的内积，算出来后除以向量的维度，做scale，再用softmax得到权重。实际中用矩阵进行运算。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/heart74/PicGo/img/202403142019073.png" alt="image-20240314201859867"></p>
+<p>如上图，Q矩阵相乘后，对n*m矩阵除以√dk，然后对每一行做softmax，结果和V相乘得到输出矩阵（最右边）输出矩阵的每一行（和q一样有n行）就是一个查询对应的值</p>
+<p>一般有两种比较常见注意力机制，一种叫加性的注意力，可以处理query和key不等长（维度？），一种叫做dot product注意力，和本文不一样的是本文除以了√dk。用dot product是因为更加简单高效。</p>
+<p>当dk不是很大的时候除不除都没关系，当dk比较大的时候，做点积，值会比较大或者比较小，值比较大的时候，同一行相对值的方差就更大，经过softmax容易有单个值变成1，其他值更加向两端靠拢，导致梯度比较小，transfomer dk比较大，所以除一下比较好</p>
+<h5 id="mask机制"><a href="#mask机制" class="headerlink" title="mask机制"></a>mask机制</h5><p><img src="https://cdn.jsdelivr.net/gh/heart74/PicGo/img/202403142034063.png" alt="image-20240314203405904"></p>
+<p>maks的效果是，让我t时刻的query只看t时刻前面对应的key-value pair，计算出QK矩阵之后，直接讲t时刻之后对应的值置为很大的负数，这样经过softmax就会变成0，从而实现忽略t时刻以后的k和v</p>
+<h3 id="多头注意力"><a href="#多头注意力" class="headerlink" title="多头注意力"></a>多头注意力</h3><p><img src="https://cdn.jsdelivr.net/gh/heart74/PicGo/img/202403142037753.png" alt="image-20240314203744676"></p>
+<p>与其做单个注意力，不如把q k v投影h次，做h个注意力，最后再投影回来，Linear的作用就是把向量投影到较低的维度</p>
+<p><img src="https://cdn.jsdelivr.net/gh/heart74/PicGo/img/202403142042863.png" alt="image-20240314204233770"></p>
+<p>h = 8 用8个头，每次除以8，投影到64维</p>
+<p> <strong>做多头的原因：</strong>因为注意力计算没有过程里没有可以学习的参数，让不同的Linear学习不同的特征，投影（线性层）的权重W是可以学的，可以学H个投影方法，来匹配不同的模式需要的一些相似函数，有点像有多个输出通道的感觉</p>
+<h3 id="Position-wise-前馈神经网络"><a href="#Position-wise-前馈神经网络" class="headerlink" title="Position-wise 前馈神经网络"></a>Position-wise 前馈神经网络</h3><p><img src="https://cdn.jsdelivr.net/gh/heart74/PicGo/img/202403142113606.png" alt="image-20240314211329432"></p>
+<p>x是query的输出，也就是512维，MLP把它投影到2048，又投影回去</p>
+<p><img src="https://cdn.jsdelivr.net/gh/heart74/PicGo/img/202403142117712.png" alt="image-20240314211749490"></p>
+<p>左边transfomer，右边RNN，所以transformer用的是序列的全局信息</p>
+<h3 id="Positional-Embedding"><a href="#Positional-Embedding" class="headerlink" title="Positional Embedding"></a>Positional Embedding</h3><p>attention没有时序信息，因为输出是value加权和，权重是value和key之间的距离，和时序信息无关，词的顺序会变值不会变。RNN上一时刻输出到下一个时刻输入，本来就有位置信息。</p>
+<p>用512向量表示位置数字，用周期不一样的sin和cos函数算出来的</p>
+<h3 id="为什么要自用注意力"><a href="#为什么要自用注意力" class="headerlink" title="为什么要自用注意力"></a>为什么要自用注意力</h3><p>做实验和其他 循环层卷积层比较，比较好，复杂度低</p>
 
         </div>
         <!-- .entry-content -->
