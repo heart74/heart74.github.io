@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://heart74.github.io/"/>
-  <updated>2024-03-14T13:31:20.856Z</updated>
+  <updated>2024-03-18T11:50:23.753Z</updated>
   <id>https://heart74.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://heart74.github.io/2023/09/22/transformer/"/>
     <id>https://heart74.github.io/2023/09/22/transformer/</id>
     <published>2023-09-22T11:45:13.000Z</published>
-    <updated>2024-03-14T13:31:20.856Z</updated>
+    <updated>2024-03-18T11:50:23.753Z</updated>
     
     <summary type="html">
     
@@ -29,8 +29,123 @@
     
     </summary>
     
+      <category term="算法" scheme="https://heart74.github.io/categories/%E7%AE%97%E6%B3%95/"/>
+    
     
       <category term="学习" scheme="https://heart74.github.io/tags/%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>cascade_rcnn</title>
+    <link href="https://heart74.github.io/2023/04/19/cascade-rcnn/"/>
+    <id>https://heart74.github.io/2023/04/19/cascade-rcnn/</id>
+    <published>2023-04-19T03:10:13.000Z</published>
+    <updated>2024-03-19T03:10:34.018Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+      <category term="技术" scheme="https://heart74.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>yolov8</title>
+    <link href="https://heart74.github.io/2023/03/19/yolov8/"/>
+    <id>https://heart74.github.io/2023/03/19/yolov8/</id>
+    <published>2023-03-19T02:12:49.000Z</published>
+    <updated>2024-03-19T03:09:28.070Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;v8&quot;&gt;&lt;a href=&quot;#v8&quot; class=&quot;headerlink&quot; title=&quot;v8&quot;&gt;&lt;/a&gt;v8&lt;/h1&gt;&lt;h2 id=&quot;网络结构&quot;&gt;&lt;a href=&quot;#网络结构&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="技术" scheme="https://heart74.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>yolov5</title>
+    <link href="https://heart74.github.io/2023/01/10/yolov5/"/>
+    <id>https://heart74.github.io/2023/01/10/yolov5/</id>
+    <published>2023-01-10T11:50:00.000Z</published>
+    <updated>2024-03-19T02:37:15.684Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;&lt;img src=&quot;https://cdn.jsdelivr.net/gh/heart74/PicGo/img/202403181952527.png&quot; alt=&quot;image-20240318195232114&quot;&gt;&lt;/p&gt;
+&lt;h3 id=&quot;框架图&quot;&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+      <category term="技术" scheme="https://heart74.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>yolov4</title>
+    <link href="https://heart74.github.io/2022/10/24/yolov4/"/>
+    <id>https://heart74.github.io/2022/10/24/yolov4/</id>
+    <published>2022-10-24T01:34:15.000Z</published>
+    <updated>2024-03-19T02:18:27.979Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;v4&quot;&gt;&lt;a href=&quot;#v4&quot; class=&quot;headerlink&quot; title=&quot;v4&quot;&gt;&lt;/a&gt;v4&lt;/h1&gt;&lt;p&gt;&lt;img
+        
+      
+    
+    </summary>
+    
+      <category term="技术" scheme="https://heart74.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>yolov1-v3</title>
+    <link href="https://heart74.github.io/2022/10/18/yolov1-v3/"/>
+    <id>https://heart74.github.io/2022/10/18/yolov1-v3/</id>
+    <published>2022-10-18T11:55:23.000Z</published>
+    <updated>2024-03-19T01:49:10.387Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;v1&quot;&gt;&lt;a href=&quot;#v1&quot; class=&quot;headerlink&quot; title=&quot;v1&quot;&gt;&lt;/a&gt;v1&lt;/h1&gt;&lt;p&gt;&lt;img
+        
+      
+    
+    </summary>
+    
+      <category term="技术" scheme="https://heart74.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
     
   </entry>
   
