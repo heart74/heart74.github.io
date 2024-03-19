@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://heart74.github.io/"/>
-  <updated>2024-03-19T08:44:55.436Z</updated>
+  <updated>2024-03-19T13:18:30.567Z</updated>
   <id>https://heart74.github.io/</id>
   
   <author>
@@ -17,11 +17,35 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Resnet&amp;DenseNet</title>
+    <link href="https://heart74.github.io/2023/10/19/Resnet/"/>
+    <id>https://heart74.github.io/2023/10/19/Resnet/</id>
+    <published>2023-10-19T11:30:12.000Z</published>
+    <updated>2024-03-19T13:18:30.567Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;卷积神经网络&quot;&gt;&lt;a href=&quot;#卷积神经网络&quot; class=&quot;headerlink&quot; title=&quot;卷积神经网络&quot;&gt;&lt;/a&gt;卷积神经网络&lt;/h2&gt;&lt;h3 id=&quot;卷积层的输出尺寸、参数量和计算量&quot;&gt;&lt;a href=&quot;#卷积层的输出尺寸、参数量和计算量&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="技术" scheme="https://heart74.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>transformer</title>
     <link href="https://heart74.github.io/2023/09/22/transformer/"/>
     <id>https://heart74.github.io/2023/09/22/transformer/</id>
     <published>2023-09-22T11:45:13.000Z</published>
-    <updated>2024-03-19T08:44:55.436Z</updated>
+    <updated>2024-03-19T12:58:58.177Z</updated>
     
     <summary type="html">
     
@@ -41,7 +65,7 @@
     <link href="https://heart74.github.io/2023/04/19/cascade-rcnn/"/>
     <id>https://heart74.github.io/2023/04/19/cascade-rcnn/</id>
     <published>2023-04-19T03:10:13.000Z</published>
-    <updated>2024-03-19T09:22:14.649Z</updated>
+    <updated>2024-03-19T11:28:39.810Z</updated>
     
     <summary type="html">
     

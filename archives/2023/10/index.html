@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   
-  <title itemprop="name">transformer | 心脏i</title>
+  <title itemprop="name">archive_a: 2023/10 | 心脏i</title>
   
     <link rel="shortcut icon" href="/images/favicon.jpg">
   
@@ -404,180 +404,360 @@
   </div>
 </header>
 
-      <link rel="stylesheet" type="text/css" href="/css/sharejs.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
-<div class="pattern-center-blank"></div>
-
-  <div class="pattern-center single-center">
-    <!-- 有配图默认渲染第一张 -->
-    <div class="pattern-attachment-img lazyload" style="background-image: url(https://cdn.jsdelivr.net/gh/heart74/PicGo/img/202403141942225.png);" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/heart74/PicGo/img/202403141942225.png">
-    </div>
-    <header class="pattern-header single-header">
-      <h1 class="entry-title">
-      transformer</h1>
-      <p class="entry-census">
-        <span>
-          <a href="https://heart74.github.io">
-            <img src="https://cdn.jsdelivr.net/gh/heart74/cdn@1.2/img/custom/avatar.jpg">
-          </a>
-        </span>
-        <span>
-          <a href="https://heart74.github.io">heart74</a>
-        </span>
-        <span class="bull">
-        ·</span>
-        2023-9-22<span class="bull">
-        ·</span>
-      <span id="busuanzi_value_page_pv"></span>次阅读</p>
-    </header>
-  </div>
-
+      <div class="blank" style="padding-top: 75px;">
+</div>
 <div id="content" class="site-content">
-  <div id="primary" class="content-area">
-    <main id="main" class="site-main" role="main">
-      <article id="post-1" class="post-1 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized">
-        <div class="toc"></div>
-        <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
-        
-        <div class="entry-content">
-          <p>传统的序列转录模型，基于复杂的循环或者卷积，主流模型，trans都给换成多头注意力了</p>
-<h2 id="模型架构"><a href="#模型架构" class="headerlink" title="模型架构"></a>模型架构</h2><p><em>**</em><img data-action="zoom" src="https://cdn.jsdelivr.net/gh/heart74/PicGo/img/202403141942225.png" alt="image-20240314194213037"></p>
-<h3 id="编码器"><a href="#编码器" class="headerlink" title="编码器"></a>编码器</h3><p>6个layer，一个层有两个子层，一个是多头注意力层，一个是MLP，对每一个子层都用了残差连接，最后使用了layer normalization.</p>
-<p>output of 子层 LayerNorm(x + Sublayer(x))。残差需要输入和输出一样大小，简单起见每一个层的输出维度都是512。和CNN MLP不一样，要么维度下减，channel增加。</p>
-<h4 id="layer-norm-和-batch-norm"><a href="#layer-norm-和-batch-norm" class="headerlink" title="layer norm 和 batch norm"></a>layer norm 和 batch norm</h4><p><img data-action="zoom" src="https://cdn.jsdelivr.net/gh/heart74/PicGo/img/202403141954855.png" alt="image-20240314195441704"></p>
-<p>图中行代表样本，每一列一个特征，左图是BN，右图是LN（二维图像）</p>
-<p><img data-action="zoom" src="https://cdn.jsdelivr.net/gh/heart74/PicGo/img/202403141957651.png" alt="image-20240314195740471"></p>
-<p>图中左边蓝色线是batch norm，取一个特征，把他样本里所有元素都搞出来，归一化。layer norm（黄线）针对一个样本，所有特征，做归一化</p>
-<p><strong>seq是序列长度</strong>，一个样本是一个序列，类比图像里的通道数，feature可以类比图像的（h*w = d）</p>
-<h5 id="batch-norm"><a href="#batch-norm" class="headerlink" title="batch norm"></a>batch norm</h5><p>在一个batch里，在某个feature得维度（样本方向），把均值变成0，方差变成1；还会学习$\lambda和\beta$，任意方差为某个值，均值为某个值</p>
-<h5 id="layer-norm"><a href="#layer-norm" class="headerlink" title="layer norm"></a>layer norm</h5><p>在样本的维度，特征方向，做归一化</p>
-<h3 id="解码器"><a href="#解码器" class="headerlink" title="解码器"></a>解码器</h3><p>和编码器不一样的是，用了第三个子层（掩码多头注意力层），解码器做的是自回归（当前输入是过去时刻的输出），但是在注意力机制里，每次能看到完整的输入，所以要把t时刻以后的mask起来。</p>
-<h3 id="Attention机制"><a href="#Attention机制" class="headerlink" title="Attention机制"></a>Attention机制</h3><p>注意力函数是将一个query和一些key-value映射成一个输出的一个函数，都是向量，output是value的加权和。输出的维度和value的维度一致。每一个value的权重，是value对应的key和查询的query的相似度计算出来的</p>
-<p><img data-action="zoom" src="https://cdn.jsdelivr.net/gh/heart74/PicGo/img/202403142014175.png" alt="image-20240314201400088"></p>
-<p>如图所示，value的靠左边的权重（粗线条），由于query和左边Key更相似，所以更大，output是V的加权和</p>
-<h4 id="Scaled-Dot-Product-Attention"><a href="#Scaled-Dot-Product-Attention" class="headerlink" title="Scaled Dot-Product Attention"></a>Scaled Dot-Product Attention</h4><p><img data-action="zoom" src="https://cdn.jsdelivr.net/gh/heart74/PicGo/img/202403142034770.png" alt="image-20240314203419696"></p>
-<p><img data-action="zoom" src="https://cdn.jsdelivr.net/gh/heart74/PicGo/img/202403142014323.png" alt="image-20240314201444241"></p>
-<p>两个向量做内积，值越大，越相似。所以这里V的权重是Q和K的内积，算出来后除以向量的维度，做scale，再用softmax得到权重。实际中用矩阵进行运算。</p>
-<p><img data-action="zoom" src="https://cdn.jsdelivr.net/gh/heart74/PicGo/img/202403142019073.png" alt="image-20240314201859867"></p>
-<p>如上图，Q矩阵相乘后，对n*m矩阵除以√dk，然后对每一行做softmax，结果和V相乘得到输出矩阵（最右边）输出矩阵的每一行（和q一样有n行）就是一个查询对应的值</p>
-<p>一般有两种比较常见注意力机制，一种叫加性的注意力，可以处理query和key不等长（维度？），一种叫做dot product注意力，和本文不一样的是本文除以了√dk。用dot product是因为更加简单高效。</p>
-<p>当dk不是很大的时候除不除都没关系，当dk比较大的时候，做点积，值会比较大或者比较小，值比较大的时候，同一行相对值的方差就更大，经过softmax容易有单个值变成1，其他值更加向两端靠拢，导致梯度比较小，transfomer dk比较大，所以除一下比较好</p>
-<h5 id="mask机制"><a href="#mask机制" class="headerlink" title="mask机制"></a>mask机制</h5><p><img data-action="zoom" src="https://cdn.jsdelivr.net/gh/heart74/PicGo/img/202403142034063.png" alt="image-20240314203405904"></p>
-<p>maks的效果是，让我t时刻的query只看t时刻前面对应的key-value pair，计算出QK矩阵之后，直接讲t时刻之后对应的值置为很大的负数，这样经过softmax就会变成0，从而实现忽略t时刻以后的k和v</p>
-<h3 id="多头注意力"><a href="#多头注意力" class="headerlink" title="多头注意力"></a>多头注意力</h3><p><img data-action="zoom" src="https://cdn.jsdelivr.net/gh/heart74/PicGo/img/202403142037753.png" alt="image-20240314203744676"></p>
-<p>与其做单个注意力，不如把q k v投影h次，做h个注意力，最后再投影回来，Linear的作用就是把向量投影到较低的维度</p>
-<p><img data-action="zoom" src="https://cdn.jsdelivr.net/gh/heart74/PicGo/img/202403142042863.png" alt="image-20240314204233770"></p>
-<p>h = 8 用8个头，每次除以8，投影到64维</p>
-<p> <strong>做多头的原因：</strong>因为注意力计算没有过程里没有可以学习的参数，让不同的Linear学习不同的特征，投影（线性层）的权重W是可以学的，可以学H个投影方法，来匹配不同的模式需要的一些相似函数，有点像有多个输出通道的感觉</p>
-<h3 id="Position-wise-前馈神经网络"><a href="#Position-wise-前馈神经网络" class="headerlink" title="Position-wise 前馈神经网络"></a>Position-wise 前馈神经网络</h3><p><img data-action="zoom" src="https://cdn.jsdelivr.net/gh/heart74/PicGo/img/202403142113606.png" alt="image-20240314211329432"></p>
-<p>x是query的输出，也就是512维，MLP把它投影到2048，又投影回去</p>
-<p><img data-action="zoom" src="https://cdn.jsdelivr.net/gh/heart74/PicGo/img/202403142117712.png" alt="image-20240314211749490"></p>
-<p>左边transfomer，右边RNN，所以transformer用的是序列的全局信息</p>
-<h3 id="Positional-Embedding"><a href="#Positional-Embedding" class="headerlink" title="Positional Embedding"></a>Positional Embedding</h3><p>attention没有时序信息，因为输出是value加权和，权重是value和key之间的距离，和时序信息无关，词的顺序会变值不会变。RNN上一时刻输出到下一个时刻输入，本来就有位置信息。</p>
-<p>用512向量表示位置数字，用周期不一样的sin和cos函数算出来的</p>
-<h3 id="为什么要自用注意力"><a href="#为什么要自用注意力" class="headerlink" title="为什么要自用注意力"></a>为什么要自用注意力</h3><p>做实验和其他 循环层卷积层比较，比较好，复杂度低</p>
-<h3 id="为什么除以dk"><a href="#为什么除以dk" class="headerlink" title="为什么除以dk"></a>为什么除以dk</h3><p>Q*K的方差是dk，均值是0，等于进行标准化</p>
-<p><img data-action="zoom" src="https://cdn.jsdelivr.net/gh/heart74/PicGo/img/202403192055055.png" alt="image-20240319205505922"></p>
-<p><img data-action="zoom" src="https://pic1.zhimg.com/v2-6585f99bfb92585d8f69058b4af82a00_r.jpg" alt></p>
-<p><img data-action="zoom" src="https://cdn.jsdelivr.net/gh/heart74/PicGo/img/202403192058118.png" alt="image-20240319205817050"></p>
-
-        </div>
-        <!-- .entry-content -->
-        <div class="single-reward">
-          <div class="reward-open">赏
-            <div class="reward-main">
-              <ul class="reward-row">
-                <li class="alipay-code"><img src="https://cdn.jsdelivr.net/gh/heart74/cdn@1.1/img/custom/donate/AliPayQR.jpg"></li>
-                <li class="wechat-code"><img src="https://cdn.jsdelivr.net/gh/heart74/cdn@1.1/img/custom/donate/WeChatQR.png"></li>
-              </ul>
+  <div id="main">
+    <header class="page-header">
+      <h1 class="cat-title">
+      归档</h1>
+      <span class="cat-des">
+        <p>
+        Archives</p>
+      </span>
+    </header>
+    <div id="main-part">
+      <article class="art">
+        <div class="art-main">
+          <div class="art-content">
+            <div id="archives">
+              <p style="text-align:right;">
+                [<span id="al_expand_collapse" style="cursor: s-resize;">
+                全部展开/收缩</span>
+              ]</p>
+              
+              
+              
+              
+              
+                
+                <h3 class="al_year">2023年</h3>
+              
+              
+                
+                <ul class="al_mon_list">
+                  <li class="al_li">
+                    <span class="al_mon" style="cursor: s-resize;">
+                      10月(<span id="post-num">
+                      3</span>
+                    篇文章)</span>
+                    <ul class="al_post_list" style="">
+              
+                      <li>
+                        <a href="/2023/10/19/Resnet/">
+                          <span style="color:#0bf;">
+                          19日19:30:12</span>
+                          Resnet&amp;DenseNet
+                        </a>
+                      </li>
+                      
+                    </ul>
+                  </li>
+                </ul>
+              
+              
+              
+              
+              
+              
+                
+                <ul class="al_mon_list">
+                  <li class="al_li">
+                    <span class="al_mon" style="cursor: s-resize;">
+                      09月(<span id="post-num">
+                      3</span>
+                    篇文章)</span>
+                    <ul class="al_post_list" style="">
+              
+                      <li>
+                        <a href="/2023/09/22/transformer/">
+                          <span style="color:#0bf;">
+                          22日19:45:13</span>
+                          transformer
+                        </a>
+                      </li>
+                      
+                    </ul>
+                  </li>
+                </ul>
+              
+              
+              
+              
+              
+              
+                
+                <ul class="al_mon_list">
+                  <li class="al_li">
+                    <span class="al_mon" style="cursor: s-resize;">
+                      04月(<span id="post-num">
+                      3</span>
+                    篇文章)</span>
+                    <ul class="al_post_list" style="">
+              
+                      <li>
+                        <a href="/2023/04/19/cascade-rcnn/">
+                          <span style="color:#0bf;">
+                          19日11:10:13</span>
+                          cascade_rcnn
+                        </a>
+                      </li>
+                      
+                    </ul>
+                  </li>
+                </ul>
+              
+              
+              
+              
+              
+              
+                
+                <ul class="al_mon_list">
+                  <li class="al_li">
+                    <span class="al_mon" style="cursor: s-resize;">
+                      03月(<span id="post-num">
+                      3</span>
+                    篇文章)</span>
+                    <ul class="al_post_list" style="">
+              
+                      <li>
+                        <a href="/2023/03/19/yolov8/">
+                          <span style="color:#0bf;">
+                          19日10:12:49</span>
+                          yolov8
+                        </a>
+                      </li>
+                      
+                    </ul>
+                  </li>
+                </ul>
+              
+              
+              
+              
+              
+              
+                
+                <ul class="al_mon_list">
+                  <li class="al_li">
+                    <span class="al_mon" style="cursor: s-resize;">
+                      01月(<span id="post-num">
+                      3</span>
+                    篇文章)</span>
+                    <ul class="al_post_list" style="">
+              
+                      <li>
+                        <a href="/2023/01/10/yolov5/">
+                          <span style="color:#0bf;">
+                          10日19:50:00</span>
+                          yolov5
+                        </a>
+                      </li>
+                      
+                    </ul>
+                  </li>
+                </ul>
+              
+              
+              
+              
+              
+                
+                <h3 class="al_year">2022年</h3>
+              
+              
+                
+                <ul class="al_mon_list">
+                  <li class="al_li">
+                    <span class="al_mon" style="cursor: s-resize;">
+                      10月(<span id="post-num">
+                      3</span>
+                    篇文章)</span>
+                    <ul class="al_post_list" style="">
+              
+                      <li>
+                        <a href="/2022/10/24/yolov4/">
+                          <span style="color:#0bf;">
+                          24日09:34:15</span>
+                          yolov4
+                        </a>
+                      </li>
+                      
+              
+              
+              
+              
+              
+                      <li>
+                        <a href="/2022/10/18/yolov1-v3/">
+                          <span style="color:#0bf;">
+                          18日19:55:23</span>
+                          yolov1-v3
+                        </a>
+                      </li>
+                      
+                    </ul>
+                  </li>
+                </ul>
+              
+              
+              
+              
+              
+              
+                
+                <ul class="al_mon_list">
+                  <li class="al_li">
+                    <span class="al_mon" style="cursor: s-resize;">
+                      05月(<span id="post-num">
+                      3</span>
+                    篇文章)</span>
+                    <ul class="al_post_list" style="">
+              
+                      <li>
+                        <a href="/2022/05/10/blog书写说明/">
+                          <span style="color:#0bf;">
+                          10日15:58:39</span>
+                          blog书写说明
+                        </a>
+                      </li>
+                      
+                    </ul>
+                  </li>
+                </ul>
+              
+              
+              
+              
+              
+              
+                
+                <ul class="al_mon_list">
+                  <li class="al_li">
+                    <span class="al_mon" style="cursor: s-resize;">
+                      03月(<span id="post-num">
+                      3</span>
+                    篇文章)</span>
+                    <ul class="al_post_list" style="">
+              
+                      <li>
+                        <a href="/2022/03/09/npm-hexo-install/">
+                          <span style="color:#0bf;">
+                          09日15:35:14</span>
+                          npm和hexo安装及使用
+                        </a>
+                      </li>
+                      
+                    </ul>
+                  </li>
+                </ul>
+              
+              
+              
+              
+              
+                
+                <h3 class="al_year">2021年</h3>
+              
+              
+                
+                <ul class="al_mon_list">
+                  <li class="al_li">
+                    <span class="al_mon" style="cursor: s-resize;">
+                      01月(<span id="post-num">
+                      3</span>
+                    篇文章)</span>
+                    <ul class="al_post_list" style="">
+              
+                      <li>
+                        <a href="/2021/01/09/InformationVisualization/">
+                          <span style="color:#0bf;">
+                          09日12:08:05</span>
+                          Information Visualation
+                        </a>
+                      </li>
+                      
+                    </ul>
+                  </li>
+                </ul>
+              
+              
+              
+              
+              
+                
+                <h3 class="al_year">2020年</h3>
+              
+              
+                
+                <ul class="al_mon_list">
+                  <li class="al_li">
+                    <span class="al_mon" style="cursor: s-resize;">
+                      06月(<span id="post-num">
+                      3</span>
+                    篇文章)</span>
+                    <ul class="al_post_list" style="">
+              
+                      <li>
+                        <a href="/2020/06/02/hadoop/">
+                          <span style="color:#0bf;">
+                          02日17:41:53</span>
+                          hadoop_problems_solve
+                        </a>
+                      </li>
+                      
+                    </ul>
+                  </li>
+                </ul>
+              
+              
+              
+              
+              
+              
+                
+                <ul class="al_mon_list">
+                  <li class="al_li">
+                    <span class="al_mon" style="cursor: s-resize;">
+                      02月(<span id="post-num">
+                      3</span>
+                    篇文章)</span>
+                    <ul class="al_post_list" style="">
+              
+                      <li>
+                        <a href="/2020/02/22/MarkDown语法/">
+                          <span style="color:#0bf;">
+                          22日17:07:33</span>
+                          MarkDown语法
+                        </a>
+                      </li>
+                      
+              
+              
+              
+              
+              
+                      <li>
+                        <a href="/2020/02/08/小记/">
+                          <span style="color:#0bf;">
+                          08日13:14:00</span>
+                          小记
+                        </a>
+                      </li>
+                      
+                    </ul>
+                  </li>
+                </ul>
+              
+              
             </div>
           </div>
         </div>
-        <div style="text-align:center; width: 100%" class="social-share share-mobile" data-disabled="diandian, tencent"></div>
-        <footer class="post-footer">
-          <div class="post-lincenses"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="nofollow"><i class="fa fa-creative-commons" aria-hidden="true"></i>心脏i</a></div>
-          <div class="post-tags">
-          </div>
-          <div class="post-share">
-            <div class="social-share sharehidden share-component"></div>
-            <i class="iconfont show-share icon-forward"></i>
-          </div>
-        </footer><!-- .entry-footer -->
       </article>
-      <!-- #post-## -->
-      <div class="toc" style="background: none;"></div>
-      <section class="post-squares nextprev">
-        
-          
-            <div class="post-nepre half previous">
-          
-            <a href="/2023/10/19/Resnet/" rel="prev">
-              <div class="background">
-                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/heart74/cdn@1.2/img/wlop/8.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/heart74/cdn@1.2/img/wlop/8.jpg">
-              </div>
-              <span class="label">
-              Previous Post</span>
-              <div class="info">
-                <h3>
-                Resnet&amp;DenseNet</h3>
-                <hr>
-              </div>
-            </a>
-          </div>
-        
-        
-          
-            <div class="post-nepre half next">
-          
-            <a href="/2023/04/19/cascade-rcnn/" rel="next">
-              <div class="background">
-                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/heart74/PicGo/img/202403191618115.png" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/heart74/PicGo/img/202403191618115.png">
-              </div>
-              <span class="label">
-              Next Post</span>
-              <div class="info">
-                <h3>
-                cascade_rcnn</h3>
-                <hr>
-              </div>
-            </a>
-          </div>
-        
-      </section>
-      
-  <div id="vcomments"></div>
-  <script>
-    window.onload = function () {
-      var valine = new Valine();
-      valine.init({
-        el: '#vcomments',
-        appId: "yQoq6TBuBk4ySvbqW9mmQW2K-gzGzoHsz",
-        appKey: "Wh5yYCom46yIBSbCr4xsM7An",
-        path: window.location.pathname,
-        placeholder: "你是我一生只会遇见一次的惊喜 ...",
-        serverURLs: 'https://yQoq6TBu.api.lncldglobal.com'
-      })
-    }
-  </script>
-  
-      <section class="author-profile">
-        <div class="info" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-          <a href="https://heart74.github.io" class="profile gravatar"><img src="https://cdn.jsdelivr.net/gh/heart74/cdn@1.2/img/custom/avatar.jpg" itemprop="image" alt="heart74" height="70" width="70"></a>
-          <div class="meta">
-            <span class="title">Author</span>
-            <h3 itemprop="name">
-            <a href="https://heart74.github.io" itemprop="url" rel="author">heart74</a>
-            </h3>
-          </div>
-        </div>
-        <hr>
-        <p><i class="iconfont icon-write"></i>I trust nobody and nobody trusts me</p>
-      </section>
-    </main><!-- #main -->
-  </div><!-- #primary -->
+    </div>
+  </div>
 </div>
-
-
 
     </div>    
     <div class="ins-search">
