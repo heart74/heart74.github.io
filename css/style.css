@@ -16,8 +16,7 @@
 
 .post-meta em {
     margin: 0 5px;
-    /* color: #666; */
-    color: black;
+    color: #666;
 }
 
 .aplayer {
@@ -2676,7 +2675,7 @@ i.iconfont.hotpost {
 .entry-content h3 {
     padding-bottom: 8px;
     border-bottom: 1px dashed #ddd;
-    color: #737373
+    color: black
 }
 
 .entry-content h3,
@@ -2773,7 +2772,7 @@ h1.entry-title {
 }
 
 .entry-content p {
-    color: #797979
+    color: black
 }
 
 .entry-content p {
