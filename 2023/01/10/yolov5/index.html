@@ -440,25 +440,26 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-          <p><img src="https://cdn.jsdelivr.net/gh/heart74/PicGo/img/202403181952527.png" alt="image-20240318195232114"></p>
+          <p><img data-action="zoom" src="https://cdn.jsdelivr.net/gh/heart74/PicGo/img/202403181952527.png" alt="image-20240318195232114"></p>
 <h3 id="框架图"><a href="#框架图" class="headerlink" title="框架图"></a>框架图</h3><p>Focus模块已经被stem layer替换，作用都是下采样</p>
-<p><img src="https://cdn.jsdelivr.net/gh/heart74/PicGo/img/202403182232433.png" alt="image-20240318223203307"></p>
-<p><img src="https://user-images.githubusercontent.com/27466624/200000324-70ae078f-cea7-4189-8baa-440656797dad.jpg" alt="v5"></p>
-<p><img src="https://user-images.githubusercontent.com/27466624/211143533-1725c1b2-6189-4c3a-a046-ad968e03cb9d.jpg" alt="v5l"></p>
+<p><img data-action="zoom" src="https://cdn.jsdelivr.net/gh/heart74/PicGo/img/202403182232433.png" alt="image-20240318223203307"></p>
+<p><img data-action="zoom" src="https://user-images.githubusercontent.com/27466624/200000324-70ae078f-cea7-4189-8baa-440656797dad.jpg" alt="v5"></p>
+<p><img data-action="zoom" src="https://user-images.githubusercontent.com/27466624/211143533-1725c1b2-6189-4c3a-a046-ad968e03cb9d.jpg" alt="v5l"></p>
 <p> 相较于v3，把SPP换成了SPPF，由并行到串行，效率更高，计算结果一样</p>
 <p>YOLOv4 和 YOLOv5 都使用 CSPDarknet作为BackBone，从输入图像中提取丰富的特征信息。CSPNet叫做Cross Stage Partial Network，跨阶段局部网络。其解决了其他大型卷积网络结构中的重复梯度问题，减少模型参数和FLOPS。这对YOLO 有重要的意义，即保证了推理速度和准确率，又减小了模型尺寸。</p>
 <h3 id="数据增强"><a href="#数据增强" class="headerlink" title="数据增强"></a>数据增强</h3><h4 id="Mosiaic"><a href="#Mosiaic" class="headerlink" title="Mosiaic"></a>Mosiaic</h4><h4 id="Copy-Paste"><a href="#Copy-Paste" class="headerlink" title="Copy Paste"></a>Copy Paste</h4><h4 id="仿射变换"><a href="#仿射变换" class="headerlink" title="仿射变换"></a>仿射变换</h4><h4 id="MixUp"><a href="#MixUp" class="headerlink" title="MixUp"></a>MixUp</h4><h4 id="Albumentations"><a href="#Albumentations" class="headerlink" title="Albumentations"></a>Albumentations</h4><p>滤波、直方图均衡化、改变图片质量</p>
-<h4 id="HSV"><a href="#HSV" class="headerlink" title="HSV"></a>HSV</h4><h4 id="FLIP"><a href="#FLIP" class="headerlink" title="FLIP"></a>FLIP</h4><h2 id="训练策略"><a href="#训练策略" class="headerlink" title="训练策略"></a>训练策略</h2><p><img src="https://cdn.jsdelivr.net/gh/heart74/PicGo/img/202403190921499.png" alt="image-20240319092131232"></p>
-<h2 id="损失"><a href="#损失" class="headerlink" title="损失"></a>损失</h2><p><img src="https://cdn.jsdelivr.net/gh/heart74/PicGo/img/202403190923417.png" alt="image-20240319092302043"></p>
-<h3 id="平衡不同尺度损失"><a href="#平衡不同尺度损失" class="headerlink" title="平衡不同尺度损失"></a>平衡不同尺度损失</h3><p><img src="https://cdn.jsdelivr.net/gh/heart74/PicGo/img/202403190924407.png" alt="image-20240319092430240"></p>
-<h3 id="消除Grid敏感度"><a href="#消除Grid敏感度" class="headerlink" title="消除Grid敏感度"></a>消除Grid敏感度</h3><p><img src="https://cdn.jsdelivr.net/gh/heart74/PicGo/img/202403190928994.png" alt="image-20240319092809599"></p>
-<h2 id="匹配正样本"><a href="#匹配正样本" class="headerlink" title="匹配正样本"></a>匹配正样本</h2><p><img src="https://cdn.jsdelivr.net/gh/heart74/PicGo/img/202403190928435.png" alt="image-20240319092841993"></p>
-<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><h3 id="obj损失的CIOU和loc损失的CIOU什么区别"><a href="#obj损失的CIOU和loc损失的CIOU什么区别" class="headerlink" title="obj损失的CIOU和loc损失的CIOU什么区别"></a>obj损失的CIOU和loc损失的CIOU什么区别</h3><h3 id="Stem-layer是什么"><a href="#Stem-layer是什么" class="headerlink" title="Stem layer是什么"></a>Stem layer是什么</h3><p> Stemblock 结构将输出的尺寸缩减为输入的 1/4，多用于<a href="https://so.csdn.net/so/search?q=轻量化网络&amp;spm=1001.2101.3001.7020" target="_blank" rel="noopener">轻量化网络</a>，完成下采样操作，可以用于 YOLOv5 网络模型中原始的卷积下采样操作，减少参数量。</p>
+<h4 id="HSV"><a href="#HSV" class="headerlink" title="HSV"></a>HSV</h4><h4 id="FLIP"><a href="#FLIP" class="headerlink" title="FLIP"></a>FLIP</h4><h2 id="训练策略"><a href="#训练策略" class="headerlink" title="训练策略"></a>训练策略</h2><p><img data-action="zoom" src="https://cdn.jsdelivr.net/gh/heart74/PicGo/img/202403190921499.png" alt="image-20240319092131232"></p>
+<h2 id="损失"><a href="#损失" class="headerlink" title="损失"></a>损失</h2><p><img data-action="zoom" src="https://cdn.jsdelivr.net/gh/heart74/PicGo/img/202403190923417.png" alt="image-20240319092302043"></p>
+<h3 id="平衡不同尺度损失"><a href="#平衡不同尺度损失" class="headerlink" title="平衡不同尺度损失"></a>平衡不同尺度损失</h3><p><img data-action="zoom" src="https://cdn.jsdelivr.net/gh/heart74/PicGo/img/202403190924407.png" alt="image-20240319092430240"></p>
+<h3 id="消除Grid敏感度"><a href="#消除Grid敏感度" class="headerlink" title="消除Grid敏感度"></a>消除Grid敏感度</h3><p><img data-action="zoom" src="https://cdn.jsdelivr.net/gh/heart74/PicGo/img/202403190928994.png" alt="image-20240319092809599"></p>
+<h2 id="匹配正样本"><a href="#匹配正样本" class="headerlink" title="匹配正样本"></a>匹配正样本</h2><p><img data-action="zoom" src="https://cdn.jsdelivr.net/gh/heart74/PicGo/img/202403190928435.png" alt="image-20240319092841993"></p>
+<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><h3 id="obj损失的CIOU和loc损失的CIOU什么区别"><a href="#obj损失的CIOU和loc损失的CIOU什么区别" class="headerlink" title="obj损失的CIOU和loc损失的CIOU什么区别"></a>obj损失的CIOU和loc损失的CIOU什么区别</h3><p>关于损失可以看yolov3的介绍，obj损失是置信度损失，用IOUorCIOU计算，用BCE算的，而loc是回归损失（预测框的坐标），损失本身就是CIOU，回归损失只计算正样本的</p>
+<h3 id="Stem-layer是什么"><a href="#Stem-layer是什么" class="headerlink" title="Stem layer是什么"></a>Stem layer是什么</h3><p> Stemblock 结构将输出的尺寸缩减为输入的 1/4，多用于<a href="https://so.csdn.net/so/search?q=轻量化网络&amp;spm=1001.2101.3001.7020" target="_blank" rel="noopener">轻量化网络</a>，完成下采样操作，可以用于 YOLOv5 网络模型中原始的卷积下采样操作，减少参数量。</p>
 <p>Stemblock 结构是 PeleeNet 中用于下采样的方法。该模块能够确保较强的特征表达能力且能够减少大量的参数</p>
-<p><img src="https://cdn.jsdelivr.net/gh/heart74/PicGo/img/202403191026713.png" alt="image-20240319102610635"></p>
+<p><img data-action="zoom" src="https://cdn.jsdelivr.net/gh/heart74/PicGo/img/202403191026713.png" alt="image-20240319102610635"></p>
 <p>由上图可以看到原始 Stemblock 结构最终将输出的尺寸缩减为输入的 1/4，参照 Stemblock  结构并对其进行修改使其只完成一次下采样即可，主要目的是替代 YOLOv5 网络模型中原始的卷积下采样操作，减少参数量。因此最终使用的修改后的  stemblock 结构如下图所示</p>
 <p>最终yolov5使用的是，缩减为输出的1/2</p>
-<p><img src="https://cdn.jsdelivr.net/gh/heart74/PicGo/img/202403191027158.png" alt="image-20240319102756043"></p>
+<p><img data-action="zoom" src="https://cdn.jsdelivr.net/gh/heart74/PicGo/img/202403191027158.png" alt="image-20240319102756043"></p>
 
         </div>
         <!-- .entry-content -->

@@ -440,7 +440,21 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-          
+          <h2 id="Two-Stage"><a href="#Two-Stage" class="headerlink" title="Two Stage"></a>Two Stage</h2><p>Stage1用Region Proposal Network (RPN)生成高质量的预选区域(RP)，Stage2用检测头以这些RP为输入，进行最终框框坐标的输出以及类别的判断。</p>
+<p>代表算法：R-CNN、Fast R-CNN、Faster R-CNN和R-FCN等</p>
+<h2 id="RCNN-Region-with-CNN-features"><a href="#RCNN-Region-with-CNN-features" class="headerlink" title="RCNN(Region with CNN features)"></a>RCNN(Region with CNN features)</h2><p>先用搜索算法（selective search）选出一些rp，将这些rp划分的图片rescale到固定的大小，然后输入<strong>预训练好的</strong>CNN获得features。最后用SVM对这些features作目标存在判断和分类。</p>
+<h2 id="Faster-RCNN"><a href="#Faster-RCNN" class="headerlink" title="Faster RCNN"></a>Faster RCNN</h2><p>提出了RPN(Region Proposal Network)，可以不费力地生成RP。</p>
+<p>rp生成后，送入到Fast R-CNN结构中，计算每个proposal和标签框之间的iou，通过人为的设定一个IoU阈值（通常为0.5），把这些Proposals分为正样本（前景）和负样本（背景），并对这些正负样本采样，使得他们之间的比例尽量满足（1:3，二者总数量通常为128），之后这些proposals（128个）被送入到Roi Pooling，最后进行类别分类和box回归。</p>
+<h3 id="RPN-head"><a href="#RPN-head" class="headerlink" title="RPN head"></a>RPN head</h3><p>完整的图片输入CNN，得到完整的feature，根据这个总feature划分多个<strong>锚框(anchor box)</strong>。以一个feature像素点为中心，不同的长宽比和缩放比来生成该像素点的不同的锚框。每个像素点都有这一系列锚框。</p>
+<p>得到锚框后，对每个框内的feature做一个前景和背景的二分类，用于判断目标是否位于锚框内。此外还需要将锚框调整到和bounding box相近的状态，可以用卷积完成这里两个个任务。一部分输出分类矩阵：<strong>rpn_cls_score</strong>，一部分输出调整后的边界框：<strong>rpn_bbox_pred</strong>。</p>
+<p>接着RPN会根据这里两个值输出<strong>rpn_rois</strong>（Region of Interests）：表示可能有目标的框；和<strong>rpn_roi_probs：</strong>包含目标的可能性。这两者组成输出给rcnn的proposal，此时的回归和分类都比较粗糙，需要rcnn进一步精细化。</p>
+<p><img data-action="zoom" src="https://cdn.jsdelivr.net/gh/heart74/PicGo/img/202403191613940.png" alt="Untitled"></p>
+<h2 id="FPN-Feature-Pyramid-Networks"><a href="#FPN-Feature-Pyramid-Networks" class="headerlink" title="FPN(Feature Pyramid Networks)"></a>FPN(Feature Pyramid Networks)</h2><p>依赖CNN给出的最后一层feature能够很好地分类，但是对目标框的检测就没有那么友善。FPN提出对每一层的feature都去做分类和回归任务。因此每一层都有一个RPN头。</p>
+<p><img data-action="zoom" src="https://cdn.jsdelivr.net/gh/heart74/PicGo/img/202403191616956.png" alt="Untitled"></p>
+<h2 id="Cascade-RCNN"><a href="#Cascade-RCNN" class="headerlink" title="Cascade RCNN"></a>Cascade RCNN</h2><p>对于Faster RCNN，IoU的设置对结果影响很大。如果IoU设置较小，那么预测框将会包含大量背景噪声信息预测，精度降低；如果IoU设置较大，那么符合标准的预测框会大量减少，容易过拟合。<strong>只有当设置的预测框IoU和rp的IoU接近才有比较好的效果</strong>。</p>
+<p>Cascade RCNN提出级联多个rcnn头，从H1到H3逐步增加IoU的阈值，每次都重新对RP进行采样，好逐步学到多层次的信息，适应不同的分布。</p>
+<p><img data-action="zoom" src="https://cdn.jsdelivr.net/gh/heart74/PicGo/img/202403191618115.png" alt="Untitled(8)"></p>
+
         </div>
         <!-- .entry-content -->
         <div class="single-reward">

@@ -440,11 +440,13 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-          <h1 id="v8"><a href="#v8" class="headerlink" title="v8"></a>v8</h1><h2 id="网络结构"><a href="#网络结构" class="headerlink" title="网络结构"></a>网络结构</h2><p><img src="https://user-images.githubusercontent.com/27466624/222869864-1955f054-aa6d-4a80-aed3-92f30af28849.jpg" alt></p>
-<h2 id="特性和改动"><a href="#特性和改动" class="headerlink" title="特性和改动"></a>特性和改动</h2><ol>
+          <h1 id="v8"><a href="#v8" class="headerlink" title="v8"></a>v8</h1><h2 id="网络结构"><a href="#网络结构" class="headerlink" title="网络结构"></a>网络结构</h2><p><img data-action="zoom" src="https://user-images.githubusercontent.com/27466624/222869864-1955f054-aa6d-4a80-aed3-92f30af28849.jpg" alt></p>
+<h2 id="特性和改动"><a href="#特性和改动" class="headerlink" title="特性和改动"></a>特性和改动</h2><p><img data-action="zoom" src="https://cdn.jsdelivr.net/gh/heart74/PicGo/img/202403191511887.png" alt="image-20240319151146761"></p>
+<p>上图右下角是 BCE+CIOU+DFL</p>
+<ol>
 <li><p>提供了一个全新的SOTA模型，包括P5640和P61280分辨率的目标检测网络和基于YOLACT的实例分割模型。和YOLOv5一样，基于缩放系数也提供了N/S/M/L/X尺度的不同大小模型，用于满足不同场景需求</p>
 </li>
-<li><p>将CSP结构换成了梯度流更丰富的C2f结构，并对不同模型调整了不同的通道数，对模型结构微调</p>
+<li><p>将CSP结构换成了梯度流更丰富的C2f结构，并对不同模型调整了不同的通道数，对模型结构微调(<strong>由于C2f结构有着更多的残差连接，所以其有着更丰富的梯度流。)</strong></p>
 </li>
 <li><p>Head部分相比yolov5改动较大，换成了解耦头结构，将分类和检测头分离，同时也从Anchor-Based换成了Anchor Free</p>
 </li>
@@ -452,13 +454,13 @@
 </li>
 <li>训练的数据增强部分，引入了最后10个epoch关闭Mosiac增强的操作，可以有效地提升精度</li>
 </ol>
-<h3 id="骨干网络和Neck的具体变化"><a href="#骨干网络和Neck的具体变化" class="headerlink" title="骨干网络和Neck的具体变化"></a>骨干网络和Neck的具体变化</h3><p><img src="https://cdn.jsdelivr.net/gh/heart74/PicGo/img/202403191055355.png" alt="Untitled(4)"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/heart74/PicGo/img/202403191100807.png" alt="Untitled(5)"></p>
+<h3 id="骨干网络和Neck的具体变化"><a href="#骨干网络和Neck的具体变化" class="headerlink" title="骨干网络和Neck的具体变化"></a>骨干网络和Neck的具体变化</h3><p><img data-action="zoom" src="https://cdn.jsdelivr.net/gh/heart74/PicGo/img/202403191055355.png" alt="Untitled(4)"></p>
+<p><img data-action="zoom" src="https://cdn.jsdelivr.net/gh/heart74/PicGo/img/202403191100807.png" alt="Untitled(5)"></p>
 <p>DFL介绍：</p>
 <p><strong>效果</strong>：良心技术，<strong>别问，问就是无cost涨点</strong></p>
 <p><strong>一句话总结</strong>：基于任意one-stage 检测器上，调整框本身与框质量估计的表示，同时用泛化版本的GFocal Loss训练该改进的表示，无cost涨点（一般1个点出头）AP</p>
 <p><a href="https://zhuanlan.zhihu.com/p/147691786" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/147691786</a></p>
-<h3 id="Loss计算"><a href="#Loss计算" class="headerlink" title="Loss计算"></a>Loss计算</h3><p><img src="https://cdn.jsdelivr.net/gh/heart74/PicGo/img/202403191108674.png" alt="image-20240319110845486"></p>
+<h3 id="Loss计算"><a href="#Loss计算" class="headerlink" title="Loss计算"></a>Loss计算</h3><p><img data-action="zoom" src="https://cdn.jsdelivr.net/gh/heart74/PicGo/img/202403191108674.png" alt="image-20240319110845486"></p>
 
         </div>
         <!-- .entry-content -->
