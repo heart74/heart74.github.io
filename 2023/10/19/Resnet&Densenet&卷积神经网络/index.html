@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   
-  <title itemprop="name">心脏i</title>
+  <title itemprop="name">ResNet&amp;DenseNet | 心脏i</title>
   
     <link rel="shortcut icon" href="/images/favicon.jpg">
   
@@ -404,284 +404,218 @@
   </div>
 </header>
 
-      <div class="blank" style="padding-top: 0px;"></div>
+      <link rel="stylesheet" type="text/css" href="/css/sharejs.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
+<div class="pattern-center-blank"></div>
+
+  <div class="pattern-center single-center">
+    <!-- 有配图默认渲染第一张 -->
+    <div class="pattern-attachment-img lazyload" style="background-image: url(https://cdn.jsdelivr.net/gh/heart74/cdn@1.2/img/wlop/8.jpg);" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/heart74/cdn@1.2/img/wlop/8.jpg">
+    </div>
+    <header class="pattern-header single-header">
+      <h1 class="entry-title">
+      ResNet&DenseNet</h1>
+      <p class="entry-census">
+        <span>
+          <a href="https://heart74.github.io">
+            <img src="https://cdn.jsdelivr.net/gh/heart74/cdn@1.2/img/custom/avatar.jpg">
+          </a>
+        </span>
+        <span>
+          <a href="https://heart74.github.io">heart74</a>
+        </span>
+        <span class="bull">
+        ·</span>
+        2023-10-19<span class="bull">
+        ·</span>
+      <span id="busuanzi_value_page_pv"></span>次阅读</p>
+    </header>
+  </div>
+
 <div id="content" class="site-content">
-  
-  <div class="notice" style="margin-top:60px">
-    <i class="iconfont icon-notification">
-    </i>
-    <div class="notice-content">生活太难，快乐就好</div>
-  </div>
-  
-  <div class="top-feature-row">
-  <h1 class="fes-title" style="font-family: 'Ubuntu', sans-serif;">
-  <i class="fa fa-anchor" aria-hidden="true">
-  </i>
-  START:DASH!!</h1>
-  
-  <div class="top-feature-v2">
-    <div class="the-feature square from_left_and_right">
-      <a href="/theme-sakura/" target="_blank">
-        <div class="img">
-          <img src="https://cdn.jsdelivr.net/gh/heart74/cdn@1.1/img/startdash/sakura.md.png">
-        </div>
-        <div class="info">
-          <h3>Sakura</h3>
-          <p>本站 hexo 主题</p>
-        </div>
-      </a>
-    </div>
-  </div>
-  
-  <div class="top-feature-v2">
-    <div class="the-feature square from_left_and_right">
-      <a href="https://space.bilibili.com/392060175" target="_blank">
-        <div class="img">
-          <img src="https://cdn.jsdelivr.net/gh/heart74/cdn@1.1/img/startdash/bilibili.jpg">
-        </div>
-        <div class="info">
-          <h3>Bilibili</h3>
-          <p>博主的b站视频</p>
-        </div>
-      </a>
-    </div>
-  </div>
-  
-  <div class="top-feature-v2">
-    <div class="the-feature square from_left_and_right">
-      <a href="/" target="_blank">
-        <div class="img">
-          <img src="https://cdn.jsdelivr.net/gh/heart74/cdn@1.1/img/startdash/wangshiwu.jpg">
-        </div>
-        <div class="info">
-          <h3>heart的万事屋</h3>
-          <p>技术服务</p>
-        </div>
-      </a>
-    </div>
-  </div>
-  
-</div>
   <div id="primary" class="content-area">
     <main id="main" class="site-main" role="main">
-      <h1 class="main-title" style="font-family: 'Ubuntu', sans-serif;">
-      <i class="fa fa-envira" aria-hidden="true"></i>
-      Discovery</h1>
+      <article id="post-1" class="post-1 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized">
+        <div class="toc"></div>
+        <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
+        
+        <div class="entry-content">
+          <h2 id="卷积神经网络"><a href="#卷积神经网络" class="headerlink" title="卷积神经网络"></a>卷积神经网络</h2><h3 id="卷积层的输出尺寸、参数量和计算量"><a href="#卷积层的输出尺寸、参数量和计算量" class="headerlink" title="卷积层的输出尺寸、参数量和计算量"></a>卷积层的输出尺寸、参数量和计算量</h3><p><img data-action="zoom" src="https://cdn.jsdelivr.net/gh/heart74/PicGo/img/202403191955477.png" alt="image-20240319195533341"></p>
+<h3 id="卷积核为什么用奇数不用偶数，如何设计卷积核"><a href="#卷积核为什么用奇数不用偶数，如何设计卷积核" class="headerlink" title="卷积核为什么用奇数不用偶数，如何设计卷积核"></a>卷积核为什么用奇数不用偶数，如何设计卷积核</h3><p><strong>原因1：</strong></p>
+<p>奇数相对于偶数，有中心点，对边沿、对线条更加敏感，可以更有效的提取边沿信息。也能获取到中心信息<br>偶数也可以使用，但是效率比奇数低。在数以万计或亿计的计算过程中，每个卷积核差一点，累计的效率就会差很多。</p>
+<p><img data-action="zoom" src="https://cdn.jsdelivr.net/gh/heart74/PicGo/img/202404171323507.png" alt="image-20240417132321443"></p>
+<p><strong>原因2：</strong> 不好补pad</p>
+<p><img data-action="zoom" src="https://cdn.jsdelivr.net/gh/heart74/PicGo/img/202404171324151.png" alt="image-20240417132415071"></p>
+<p>原因3：<img data-action="zoom" src="https://cdn.jsdelivr.net/gh/heart74/PicGo/img/202404171327668.png" alt="image-20240417132721605"></p>
+<h4 id="卷积核设计："><a href="#卷积核设计：" class="headerlink" title="卷积核设计："></a>卷积核设计：</h4><p><img data-action="zoom" src="https://cdn.jsdelivr.net/gh/heart74/PicGo/img/202404171329400.png" alt="image-20240417132930302"></p>
+<h3 id="AlexNet"><a href="#AlexNet" class="headerlink" title="AlexNet"></a>AlexNet</h3><p><img data-action="zoom" src="https://cdn.jsdelivr.net/gh/heart74/PicGo/img/202403191946833.png" alt="image-20240319194613671">、</p>
+<p><img data-action="zoom" src="https://cdn.jsdelivr.net/gh/heart74/PicGo/img/202403191946948.png" alt="image-20240319194632840"></p>
+<h3 id="VGG"><a href="#VGG" class="headerlink" title="VGG"></a>VGG</h3><p><img data-action="zoom" src="https://zh-v2.d2l.ai/_images/vgg.svg" alt></p>
+<h3 id="NiN-网络中的网络"><a href="#NiN-网络中的网络" class="headerlink" title="NiN 网络中的网络"></a>NiN 网络中的网络</h3><p>LeNet、AlexNet和VGG都有一个共同的设计模式：通过一系列的卷积层与汇聚层来提取空间结构特征；然后通过全连接层对特征的表征进行处理。 AlexNet和VGG对LeNet的改进主要在于如何扩大和加深这两个模块。 或者，可以想象在这个过程的早期使用全连接层。然而，如果使用了全连接层，可能会完全放弃表征的空间结构。 <em>网络中的网络</em>（<em>NiN</em>）提供了一个非常简单的解决方案：在每个像素的通道上分别使用多层感知机（1*1卷积）</p>
+<p><img data-action="zoom" src="https://zh-v2.d2l.ai/_images/nin.svg" alt></p>
+<h3 id="GoogLeNet-Inception-v1"><a href="#GoogLeNet-Inception-v1" class="headerlink" title="GoogLeNet / Inception-v1"></a>GoogLeNet / Inception-v1</h3><p>在2014年的ImageNet图像识别挑战赛中，一个名叫<em>GoogLeNet</em> (<a href="https://zh-v2.d2l.ai/chapter_references/zreferences.html#id162" target="_blank" rel="noopener">Szegedy <em>et al.</em>, 2015</a>)的网络架构大放异彩。 GoogLeNet吸收了NiN中串联网络的思想，并在此基础上做了改进。 这篇论文的一个重点是解决了什么样大小的卷积核最合适的问题。 毕竟，以前流行的网络使用小到，大到的卷积核。 本文的一个观点是，有时使用不同大小的卷积核组合是有利的。 本节将介绍一个稍微简化的GoogLeNet版本：我们省略了一些为稳定训练而添加的特殊特性，现在有了更好的训练方法，这些特性不是必要的</p>
+<p>那么为什么GoogLeNet这个网络如此有效呢？ 首先我们考虑一下滤波器（filter）的组合，它们可以用各种滤波器尺寸探索图像，这意味着不同大小的滤波器可以有效地识别不同范围的图像细节。 同时，我们可以为不同的滤波器分配不同数量的参数。</p>
+<p><img data-action="zoom" src="https://cdn.jsdelivr.net/gh/heart74/PicGo/img/202403192004486.png" alt="image-20240319200417414"></p>
+<p><img data-action="zoom" src="https://achilles-10.github.io/posts/tech/interview1/11.png" alt></p>
+<p><img data-action="zoom" src="https://zh-v2.d2l.ai/_images/inception-full.svg" alt></p>
+<p><img data-action="zoom" src="https://cdn.jsdelivr.net/gh/heart74/PicGo/img/202403192010823.png" alt="image-20240319201042709"></p>
+<p><img data-action="zoom" src="https://achilles-10.github.io/posts/tech/interview1/12.png" alt></p>
+<p>为了缓解单纯用池化层下采样带来的表达瓶颈问题，在原始 Inception 模块上修改，将每条支路最后一层的步长改为2，如下图。 </p>
+<p><img data-action="zoom" src="https://achilles-10.github.io/posts/tech/interview1/13.png" alt></p>
+<h2 id="ResNet"><a href="#ResNet" class="headerlink" title="ResNet"></a>ResNet</h2><h3 id="BN"><a href="#BN" class="headerlink" title="BN"></a>BN</h3><p><img data-action="zoom" src="https://cdn.jsdelivr.net/gh/heart74/PicGo/img/202403192016736.png" alt="image-20240319201640591"></p>
+<p>ResNet 的提出基于这样一种现象：随着网络层数加深，训练误差和测试误差都会上升，这种现象称为<strong>网络退化</strong>（degeneration）。ResNet 使用<strong>跳层连接</strong>（shortcut connection）来解决这个问题，跳层连接有以下两点好处：     </p>
+<ul>
+<li><p>抑制梯度消失的现象，使网络在加深时性能不会下降；</p>
+</li>
+<li><p>由于 “近道” 的存在，若网络在层数加深退化时，可以通过控制 “近道” 和 “非近道” 的组合比例来退回到之前浅层时的状态，即 “近道” 具备自我关闭能力。</p>
+</li>
+</ul>
+<p><img data-action="zoom" src="https://zh-v2.d2l.ai/_images/residual-block.svg" alt></p>
+<p><strong>左正常块，右残差块</strong></p>
+<p><img data-action="zoom" src="https://cdn.jsdelivr.net/gh/heart74/PicGo/img/202403192013540.png" alt="image-20240319201342462"></p>
+<p><img data-action="zoom" src="https://cdn.jsdelivr.net/gh/heart74/PicGo/img/202403192036125.png" alt="Untitled(9)"></p>
+<p>ResNet沿用了VGG完整的3x3卷积层设计。 残差块里首先有2个有相同输出通道数的卷积层。 每个卷积层后接一个批量规范化层和ReLU激活函数。 然后我们通过跨层数据通路，跳过这2个卷积运算，将输入直接加在最后的ReLU激活函数前。 这样的设计要求2个卷积层的输出与输入形状一样，从而使它们可以相加。 如果想改变通道数，就需要引入一个额外的卷积层来将输入变换成需要的形状后再做相加运算。 残差块的实现如下：</p>
+<pre><code class="python">import torch
+from torch import nn
+from torch.nn import functional as F
+from d2l import torch as d2l
+
+
+class Residual(nn.Module):  #@save
+    def __init__(self, input_channels, num_channels,
+                 use_1x1conv=False, strides=1):
+        super().__init__()
+        self.conv1 = nn.Conv2d(input_channels, num_channels,
+                               kernel_size=3, padding=1, stride=strides)
+        self.conv2 = nn.Conv2d(num_channels, num_channels,
+                               kernel_size=3, padding=1)
+        if use_1x1conv:
+            self.conv3 = nn.Conv2d(input_channels, num_channels,
+                                   kernel_size=1, stride=strides)
+        else:
+            self.conv3 = None
+        self.bn1 = nn.BatchNorm2d(num_channels)
+        self.bn2 = nn.BatchNorm2d(num_channels)
+
+    def forward(self, X):
+        Y = F.relu(self.bn1(self.conv1(X)))
+        Y = self.bn2(self.conv2(Y))
+        if self.conv3:
+            X = self.conv3(X)
+        Y += X
+        return F.relu(Y)
+
+</code></pre>
+<p><img data-action="zoom" src="https://cdn.jsdelivr.net/gh/heart74/PicGo/img/202403192103847.png" alt="image-20240319210318734"></p>
+<p><img data-action="zoom" src="https://cdn.jsdelivr.net/gh/heart74/PicGo/img/202403192106502.png" alt="image-20240319210626436"></p>
+<p>整体框架</p>
+<p><img data-action="zoom" src="https://zh-v2.d2l.ai/_images/resnet18.svg" alt></p>
+<p><img data-action="zoom" src="https://cdn.jsdelivr.net/gh/heart74/PicGo/img/202403192111371.png" alt="image-20240319211152298"></p>
+<p><img data-action="zoom" src="https://cdn.jsdelivr.net/gh/heart74/PicGo/img/202403192014750.png" alt="image-20240319201417680"></p>
+<h2 id="DensenNet"><a href="#DensenNet" class="headerlink" title="DensenNet"></a>DensenNet</h2><p>​    </p>
+<p><img data-action="zoom" src="https://cdn.jsdelivr.net/gh/heart74/PicGo/img/202403192216353.png" alt="image-20240319221606150"></p>
+<p><img data-action="zoom" src="https://cdn.jsdelivr.net/gh/heart74/PicGo/img/202403192216399.png" alt="image-20240319221624264"></p>
+<p><img data-action="zoom" src="https://cdn.jsdelivr.net/gh/heart74/PicGo/img/202403192219677.png" alt=" "></p>
+<p><img data-action="zoom" src="https://cdn.jsdelivr.net/gh/heart74/PicGo/img/202403192219360.png" alt="image-20240319221931284"></p>
+<p><img data-action="zoom" src="https://cdn.jsdelivr.net/gh/heart74/PicGo/img/202403192220724.png" alt="image-20240319222008647"></p>
+
+        </div>
+        <!-- .entry-content -->
+        <div class="single-reward">
+          <div class="reward-open">赏
+            <div class="reward-main">
+              <ul class="reward-row">
+                <li class="alipay-code"><img src="https://cdn.jsdelivr.net/gh/heart74/cdn@1.1/img/custom/donate/AliPayQR.jpg"></li>
+                <li class="wechat-code"><img src="https://cdn.jsdelivr.net/gh/heart74/cdn@1.1/img/custom/donate/WeChatQR.png"></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div style="text-align:center; width: 100%" class="social-share share-mobile" data-disabled="diandian, tencent"></div>
+        <footer class="post-footer">
+          <div class="post-lincenses"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="nofollow"><i class="fa fa-creative-commons" aria-hidden="true"></i>心脏i</a></div>
+          <div class="post-tags">
+          </div>
+          <div class="post-share">
+            <div class="social-share sharehidden share-component"></div>
+            <i class="iconfont show-share icon-forward"></i>
+          </div>
+        </footer><!-- .entry-footer -->
+      </article>
+      <!-- #post-## -->
+      <div class="toc" style="background: none;"></div>
+      <section class="post-squares nextprev">
+        
+          
+            <div class="post-nepre half previous">
+          
+            <a href="/2024/03/20/VIT_Swin/" rel="prev">
+              <div class="background">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/heart74/cdn@1.2/img/wlop/8.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/heart74/cdn@1.2/img/wlop/8.jpg">
+              </div>
+              <span class="label">
+              Previous Post</span>
+              <div class="info">
+                <h3>
+                VIT&amp;&amp;Swin</h3>
+                <hr>
+              </div>
+            </a>
+          </div>
+        
+        
+          
+            <div class="post-nepre half next">
+          
+            <a href="/2023/09/22/transformer/" rel="next">
+              <div class="background">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/heart74/PicGo/img/202403141942225.png" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/heart74/PicGo/img/202403141942225.png">
+              </div>
+              <span class="label">
+              Next Post</span>
+              <div class="info">
+                <h3>
+                transformer</h3>
+                <hr>
+              </div>
+            </a>
+          </div>
+        
+      </section>
       
-  <!-- 首页默认取最最新文章集 -->
+  <div id="vcomments"></div>
+  <script>
+    window.onload = function () {
+      var valine = new Valine();
+      valine.init({
+        el: '#vcomments',
+        appId: "yQoq6TBuBk4ySvbqW9mmQW2K-gzGzoHsz",
+        appKey: "Wh5yYCom46yIBSbCr4xsM7An",
+        path: window.location.pathname,
+        placeholder: "你是我一生只会遇见一次的惊喜 ...",
+        serverURLs: 'https://yQoq6TBu.api.lncldglobal.com'
+      })
+    }
+  </script>
   
-    
-<article  class="post post-list-thumb post-list-thumb-left"  class="post post-list-thumb" itemscope="" itemtype="http://schema.org/BlogPosting">
-
-  <div class="post-thumb">
-    <a href="/2022/03/09/npm-hexo-install/">
-      <img class="lazyload" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/heart74/cdn@1.2/img/wlop/8.jpg">
-    </a>
-  </div>
-  <div class="post-content-wrap">
-    <div class="post-content">
-      <div class="post-date">
-        <i class="iconfont icon-time">
-        </i>2022-3-9 15:03</div>
-      <a href="/2022/03/09/npm-hexo-install/" class="post-title">
-        <h3>npm和hexo安装及使用</h3>
-      </a>
-      <div class="post-meta">
-        <span><i class="fa fa-tags"></i>
-        
-        </span>
-        <span>
-          <i class="iconfont icon-file"></i>
-          
-            <a href="/categories/技术/">技术</a>
-          
-        </span>
-      </div>
-      <div class="float-content">
-        <p>安装版本问题很坑</p>
-        <div class="post-bottom">
-          <a href="/2022/03/09/npm-hexo-install/" class="button-normal">
-            <i class="iconfont icon-caidan"></i>
-          </a>
+      <section class="author-profile">
+        <div class="info" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <a href="https://heart74.github.io" class="profile gravatar"><img src="https://cdn.jsdelivr.net/gh/heart74/cdn@1.2/img/custom/avatar.jpg" itemprop="image" alt="heart74" height="70" width="70"></a>
+          <div class="meta">
+            <span class="title">Author</span>
+            <h3 itemprop="name">
+            <a href="https://heart74.github.io" itemprop="url" rel="author">heart74</a>
+            </h3>
+          </div>
         </div>
-      </div>
-    </div>
-  </div>
-</article>
-  
-    
-<article  class="post post-list-thumb" itemscope="" itemtype="http://schema.org/BlogPosting">
-
-  <div class="post-thumb">
-    <a href="/2021/01/09/InformationVisualization/">
-      <img class="lazyload" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/heart74/PicGo/img/bg.jpg">
-    </a>
-  </div>
-  <div class="post-content-wrap">
-    <div class="post-content">
-      <div class="post-date">
-        <i class="iconfont icon-time">
-        </i>2021-1-9 12:01</div>
-      <a href="/2021/01/09/InformationVisualization/" class="post-title">
-        <h3>Information Visualation</h3>
-      </a>
-      <div class="post-meta">
-        <span><i class="fa fa-tags"></i>
-        
-        </span>
-        <span>
-          <i class="iconfont icon-file"></i>
-          
-            <a href="/categories/技术/">技术</a>
-          
-        </span>
-      </div>
-      <div class="float-content">
-        <p></p>
-        <div class="post-bottom">
-          <a href="/2021/01/09/InformationVisualization/" class="button-normal">
-            <i class="iconfont icon-caidan"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</article>
-  
-    
-<article  class="post post-list-thumb post-list-thumb-left"  class="post post-list-thumb" itemscope="" itemtype="http://schema.org/BlogPosting">
-
-  <div class="post-thumb">
-    <a href="/2020/06/02/hadoop/">
-      <img class="lazyload" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/heart74/cdn@1.2/img/wlop/2.jpg">
-    </a>
-  </div>
-  <div class="post-content-wrap">
-    <div class="post-content">
-      <div class="post-date">
-        <i class="iconfont icon-time">
-        </i>2020-6-2 17:06</div>
-      <a href="/2020/06/02/hadoop/" class="post-title">
-        <h3>hadoop_problems_solve</h3>
-      </a>
-      <div class="post-meta">
-        <span><i class="fa fa-tags"></i>
-        
-        </span>
-        <span>
-          <i class="iconfont icon-file"></i>
-          
-            <a href="/categories/技术/">技术</a>
-          
-        </span>
-      </div>
-      <div class="float-content">
-        <p>我在安装hadoop时遇到并解决的问题，请批评指正！</p>
-        <div class="post-bottom">
-          <a href="/2020/06/02/hadoop/" class="button-normal">
-            <i class="iconfont icon-caidan"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</article>
-  
-    
-<article  class="post post-list-thumb" itemscope="" itemtype="http://schema.org/BlogPosting">
-
-  <div class="post-thumb">
-    <a href="/2020/02/22/MarkDown语法/">
-      <img class="lazyload" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/heart74/cdn@1.2/img/wlop/6.jpg">
-    </a>
-  </div>
-  <div class="post-content-wrap">
-    <div class="post-content">
-      <div class="post-date">
-        <i class="iconfont icon-time">
-        </i>2020-2-22 17:02</div>
-      <a href="/2020/02/22/MarkDown语法/" class="post-title">
-        <h3>MarkDown语法</h3>
-      </a>
-      <div class="post-meta">
-        <span><i class="fa fa-tags"></i>
-        
-            <a href="/tags/悦读/">悦读<em>·</em></a>
-          
-        </span>
-        <span>
-          <i class="iconfont icon-file"></i>
-          
-            <a href="/categories/技术/">技术</a>
-          
-        </span>
-      </div>
-      <div class="float-content">
-        <p>md的一些语法 分享下</p>
-        <div class="post-bottom">
-          <a href="/2020/02/22/MarkDown语法/" class="button-normal">
-            <i class="iconfont icon-caidan"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</article>
-  
-    
-<article  class="post post-list-thumb post-list-thumb-left"  class="post post-list-thumb" itemscope="" itemtype="http://schema.org/BlogPosting">
-
-  <div class="post-thumb">
-    <a href="/2020/02/08/小记/">
-      <img class="lazyload" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/heart74/cdn@1.2/img/wlop/8.jpg">
-    </a>
-  </div>
-  <div class="post-content-wrap">
-    <div class="post-content">
-      <div class="post-date">
-        <i class="iconfont icon-time">
-        </i>2020-2-8 13:02</div>
-      <a href="/2020/02/08/小记/" class="post-title">
-        <h3>小记</h3>
-      </a>
-      <div class="post-meta">
-        <span><i class="fa fa-tags"></i>
-        
-            <a href="/tags/悦读/">悦读<em>·</em></a>
-          
-        </span>
-        <span>
-          <i class="iconfont icon-file"></i>
-          
-            <a href="/categories/生活/">生活</a>
-          
-        </span>
-      </div>
-      <div class="float-content">
-        <p>第一次搭建个人博客 花里胡哨的快乐</p>
-        <div class="post-bottom">
-          <a href="/2020/02/08/小记/" class="button-normal">
-            <i class="iconfont icon-caidan"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</article>
-  
-
-
-    </main>
-      <!-- 首页默认取最最新文章集 -->
-    <!-- 
-      <nav class="navigator">
-        
-        <a class="extend prev" rel="prev" href="/">Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
-      </nav>
-     -->
-  </div>
-  
+        <hr>
+        <p><i class="iconfont icon-write"></i>I trust nobody and nobody trusts me</p>
+      </section>
+    </main><!-- #main -->
+  </div><!-- #primary -->
 </div>
+
+
 
     </div>    
     <div class="ins-search">

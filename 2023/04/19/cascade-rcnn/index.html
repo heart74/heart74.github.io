@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   
-  <title itemprop="name">cascade_rcnn | 心脏i</title>
+  <title itemprop="name">RCNN系列&amp;&amp;Cascade_rcnn | 心脏i</title>
   
     <link rel="shortcut icon" href="/images/favicon.jpg">
   
@@ -414,7 +414,7 @@
     </div>
     <header class="pattern-header single-header">
       <h1 class="entry-title">
-      cascade_rcnn</h1>
+      RCNN系列&&Cascade_rcnn</h1>
       <p class="entry-census">
         <span>
           <a href="https://heart74.github.io">
@@ -459,11 +459,10 @@
 </li>
 <li><p>FC层的输出两部分，使用了多任务损失函数(multi-task loss)。</p>
 </li>
-<li><h3 id="ROI-pooling-layer"><a href="#ROI-pooling-layer" class="headerlink" title="ROI pooling layer"></a>ROI pooling layer</h3><p>作用：对任意大小的输入产生固定的输出</p>
-<h3 id="损失函数"><a href="#损失函数" class="headerlink" title="损失函数"></a>损失函数</h3><p><img data-action="zoom" src="https://yoyospace.top/images/0a38f343339dc7fcc9fddb0fa3f9913a488af2570eb77489c943bd7adf72bc22.png" alt></p>
-<p><img data-action="zoom" src="https://yoyospace.top/images/2e7e9dd3f5a8e2629914de9ea3360339c6a59ca8003535f902ac6dfea6096516.png" alt></p>
-</li>
 </ul>
+<h3 id="ROI-pooling-layer"><a href="#ROI-pooling-layer" class="headerlink" title="ROI pooling layer"></a>ROI pooling layer</h3><p>  作用：对任意大小的输入产生固定的输出</p>
+<h3 id="损失函数"><a href="#损失函数" class="headerlink" title="损失函数"></a>损失函数</h3><p>  <img data-action="zoom" src="https://yoyospace.top/images/0a38f343339dc7fcc9fddb0fa3f9913a488af2570eb77489c943bd7adf72bc22.png" alt></p>
+<p>  <img data-action="zoom" src="https://yoyospace.top/images/2e7e9dd3f5a8e2629914de9ea3360339c6a59ca8003535f902ac6dfea6096516.png" alt></p>
 <p>  smooth的图像为：</p>
 <p>  <img data-action="zoom" src="https://yoyospace.top/images/7d07bffc5972ad9013cfd990e8b9bd20dc8bbd67da21c92260947cafae861ac9.png" alt></p>
 <p>##Faster RCNN</p>
@@ -499,9 +498,68 @@
 <p><img data-action="zoom" src="https://cdn.jsdelivr.net/gh/heart74/PicGo/img/202403191613940.png" alt="Untitled"></p>
 <h2 id="FPN-Feature-Pyramid-Networks"><a href="#FPN-Feature-Pyramid-Networks" class="headerlink" title="FPN(Feature Pyramid Networks)"></a>FPN(Feature Pyramid Networks)</h2><p>依赖CNN给出的最后一层feature能够很好地分类，但是对目标框的检测就没有那么友善。FPN提出对每一层的feature都去做分类和回归任务。因此每一层都有一个RPN头。</p>
 <p><img data-action="zoom" src="https://cdn.jsdelivr.net/gh/heart74/PicGo/img/202403191616956.png" alt="Untitled"></p>
-<h2 id="Cascade-RCNN"><a href="#Cascade-RCNN" class="headerlink" title="Cascade RCNN"></a>Cascade RCNN</h2><p>对于Faster RCNN，IoU的设置对结果影响很大。如果IoU设置较小，那么预测框将会包含大量背景噪声信息预测，精度降低；如果IoU设置较大，那么符合标准的预测框会大量减少，容易过拟合。<strong>只有当设置的预测框IoU和rp的IoU接近才有比较好的效果</strong>。</p>
+<h2 id="Cascade-RCNN"><a href="#Cascade-RCNN" class="headerlink" title="Cascade RCNN"></a>Cascade RCNN</h2><p><img data-action="zoom" src="https://cdn.jsdelivr.net/gh/heart74/PicGo/img/202403251617469.png" alt="image-20240325161725384"></p>
+<p>对于Faster RCNN，IoU的设置对结果影响很大。如果IoU设置较小，那么预测框将会包含大量背景噪声信息预测，精度降低；如果IoU设置较大，那么符合标准的预测框会大量减少，容易过拟合。<strong>只有当设置的预测框IoU和rp的IoU接近才有比较好的效果</strong>。</p>
 <p>Cascade RCNN提出级联多个rcnn头，从H1到H3逐步增加IoU的阈值，每次都重新对RP进行采样，好逐步学到多层次的信息，适应不同的分布。</p>
 <p><img data-action="zoom" src="https://cdn.jsdelivr.net/gh/heart74/PicGo/img/202403191618115.png" alt="Untitled(8)"></p>
+<h2 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h2><h3 id="RCNN"><a href="#RCNN" class="headerlink" title="RCNN"></a>RCNN</h3><p>直接用selective search选择Region Proposals，然后将这些RP对应的图片resize到固定大小，后输入<strong>预训练好的</strong>CNN获得features。最后用SVM对这些features作目标存在判断和分类。</p>
+<p><strong>缺点</strong>：</p>
+<ul>
+<li><p>对每个region都进行CNN提取特征，由于region重叠部分较多，使用CNN对相同区域提取多次耗时</p>
+</li>
+<li><p>RCNN提取Region特征之前需要Resize，破坏图中的内容的结构，影响性能</p>
+</li>
+</ul>
+<h3 id="Fast-RCNN-1"><a href="#Fast-RCNN-1" class="headerlink" title="Fast RCNN"></a>Fast RCNN</h3><ul>
+<li><p>先将正常图片输入预训练好的CNN提取特征，然后在最后一层再使用selective search选取一些Region Proposals候选框（将原图中的位置映射到特征图），CNN只需提取一次特征</p>
+</li>
+<li><p>然后通过一个ROIpooing，对特征图中每个region的对应的区域进行pooling，产生固定大小的输出，输入FC层进行分类和回归任务</p>
+</li>
+<li><p>FC层的输出两部分，使用了多任务损失函数(multi-task loss)</p>
+<p><strong>缺点：</strong></p>
+<p>Fast R-CNN与R-CNN一样需要预先Selective Search，该过程速度较慢</p>
+</li>
+</ul>
+<h3 id="Faster-RCNN"><a href="#Faster-RCNN" class="headerlink" title="Faster RCNN"></a>Faster RCNN</h3><p>针对Fast RCNN的缺点，Faster R-CNN将region提取的过程融入进网络里，使用RPN进行提取rp，然后再输入分类头</p>
+<p>RPN可以帮我们找出可能包含物体的哪些区域（类别置信度，和bbox坐标）</p>
+<p>RPN使用固定大小的anchor，这些anchor将会均匀地放置在整个原始图像中。不同于原来我们要检测物体在哪里，我们现在利用anchor将问题转换为另外两部分：</p>
+<ul>
+<li>某个框内是否含有物体</li>
+<li>某个框是否框的准，如果框的不准我们要如何调整框</li>
+</ul>
+<h4 id="流程-1"><a href="#流程-1" class="headerlink" title="流程"></a>流程</h4><p>完整的图片输入CNN，得到完整的feature，根据这个总feature划分多个<strong>锚框(anchor box)</strong>。以一个feature像素点为中心，不同的长宽比和缩放比来生成该像素点的不同的锚框。每个像素点都有这一系列锚框。</p>
+<p>得到锚框后，对每个框内的feature做一个前景和背景的二分类，用于判断目标是否位于锚框内。此外还需要将锚框调整到和bounding box相近的状态，可以用卷积完成这里两个个任务。一部分输出分类矩阵：<strong>rpn_cls_score</strong>，一部分输出调整后的边界框：<strong>rpn_bbox_pred</strong>。</p>
+<p>接着RPN会根据这里两个值输出<strong>rpn_rois</strong>（Region of Interests）：表示可能有目标的框；和<strong>rpn_roi_probs：</strong>包含目标的可能性。这两者组成输出给rcnn的proposal，此时的回归和分类都比较粗糙，需要rcnn进一步精细化。</p>
+<p>依赖CNN给出的最后一层feature能够很好地分类，但是对目标框的检测就没有那么友善。FPN(特征金字塔)提出对每一层的feature都去做分类和回归任务。因此每一层都有一个RPN头。 </p>
+<p><strong>缺点：</strong></p>
+<p>对于Faster RCNN，IoU的设置对结果影响很大。如果IoU设置较小，那么预测框将会包含大量背景噪声信息预测，精度降低；如果IoU设置较大，那么符合标准的预测框会大量减少，容易过拟合。<strong>只有当设置的预测框IoU和rp的IoU接近才有比较好的效果</strong>。</p>
+<p>没看懂：</p>
+<h3 id="Cascade-RCNN-1"><a href="#Cascade-RCNN-1" class="headerlink" title="Cascade RCNN"></a>Cascade RCNN</h3><p>Cascade RCNN提出级联多个rcnn头，从H1到H3逐步增加IoU的阈值，每次都重新对RP进行采样，好逐步学到多层次的信息，适应不同的分布。</p>
+<p><img data-action="zoom" src="https://cdn.jsdelivr.net/gh/heart74/PicGo/img/202403191618115.png" alt="Untitled(8)"></p>
+<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><h3 id="一阶段和两阶段的区别"><a href="#一阶段和两阶段的区别" class="headerlink" title="一阶段和两阶段的区别"></a>一阶段和两阶段的区别</h3><p>1、YOLO是一阶段的方法，速度比RCNN系列更快。</p>
+<p>2、YOLO在CNN中计算了图像中的全部特征，而RCNN在分类时系列只看到了局部特征。即YOLO使用全图作为 Context 信息，背景错误（把背景错认为物体）比较少</p>
+<p>YOLOv1对小目标检测差，每个cell只测两个框，两个框都是一个类别的，当小目标聚集在一起，效果很差</p>
+<p>定位不准确</p>
+<p><img data-action="zoom" src="https://cdn.jsdelivr.net/gh/heart74/PicGo/img/202403181952527.png" alt="image-20240318195232114"></p>
+<p><strong>One-Stage检测算法</strong>，没有selective se    arch产生region  proposal的阶段，直接产生物体的类别概率和位置坐标，经过单次检测即可直接获得最终的检测结果。相比Two-Stage有更快的速度。代表网络有YOLO v1/v2/v3/9000,SSD,Retina-Net. （two-stage算法中的roi pooling会对目标做resize,  小目标的特征被放大，其特征轮廓也更为清晰，因此检测也更为准确）</p>
+<p><strong>Two-Stage检测算法</strong>将检测问题划分成两个阶段，首先是获取region proposal进行位置精修和分类阶段。相比于One-Stage,精度高，漏检率也低，但是速度较慢，代表网络有Fast rcnn，Faster rcnn，mask rcnn等。</p>
+<p><strong>Two-Stage和One-Stage的异同</strong>（回答的是Two-Stage先对前景背景做了筛选，再进行回归，回归效果比较好，<strong>准度高但是相比较慢</strong>，One-Stage是直接对特征上的点进行直接回归，优点是<strong>速度快</strong>，因为用了多层特征图出框可能小目标效果比较好一点（个人看法），缺点是因为正负样本失衡导致效果较差，要结合难例挖掘。）</p>
+<p><strong>one stage在哪些具体方面检测精度不高</strong>（ROI+default box的深层理解）（one-stage算法对小目标检测效果较差，如果所有的anchor都没有覆盖到这个目标，那么这个目标就会漏检。）</p>
+<p><strong>Faster rcnn的两阶段训练和end-to-end训练的不一样</strong> （回答的是就是把RPN和二阶段拆开训，然后追问RPN在ENDTOEND中怎么回传，答TOTALLoss中有一阶段和二阶段的LOSS，只是回传影响的部分不一样。）</p>
+<p><strong>目标检测的发展历程，从传统到深度</strong>（传统部分回答的算子结合分类器分类，简单说了一下缺陷，深度部分说了RCNN,FAST,FASTER,SSD,YOLO,FPN,MASK RCNN,Cascade RCNN，都简单的介绍了一下）</p>
+<p><strong>传统目标检测</strong>：<strong>主线：区域选择-&gt;特征提取-&gt;分类器</strong></p>
+<p>传统的做目标检测的<strong>算法基本流程</strong>如下：1. 使用不同尺度的滑动窗口选定图像的某一区域为候选区域；2. 从对应的候选区域提取如Harr HOG LBP LTP等一类或者多类特征；3. 使用Adaboost SVM 等分类算法对对应的候选区域进行分类，判断是否属于待检测的目标。</p>
+<p><strong>缺点</strong>：1）基于滑动窗口的区域选择策略没有针对性，时间复杂度高，窗口冗余2）手工设计的特征对于多样性的变化没有很好的鲁棒性</p>
+<p><img data-action="zoom" src="https://cdn.jsdelivr.net/gh/heart74/PicGo/img/202403251615079.png" alt="image-20240325161501942"></p>
+<h3 id="多层的Feature预测的结果如何融合"><a href="#多层的Feature预测的结果如何融合" class="headerlink" title="多层的Feature预测的结果如何融合"></a>多层的Feature预测的结果如何融合</h3><p>涉及到使用FPN的网络，答案是不用融合，每个尺度都可以输入框，最后可以用nms之类的方法进行抑制</p>
+<h3 id="selective-search"><a href="#selective-search" class="headerlink" title="selective search"></a>selective search</h3><p><img data-action="zoom" src="https://cdn.jsdelivr.net/gh/heart74/PicGo/img/202403251519715.png" alt="image-20240325151925529"></p>
+<h3 id="ROI-pooling和SPP的关系"><a href="#ROI-pooling和SPP的关系" class="headerlink" title="ROI pooling和SPP的关系"></a>ROI pooling和SPP的关系</h3><p>SPP叫做空间金字塔池化，对任意大小的输入产生固定的输出，解决多尺度问题 </p>
+<p><img data-action="zoom" src="https://cdn.jsdelivr.net/gh/heart74/PicGo/img/202403251631890.png" alt="image-20240325163140770"></p>
+<p><img data-action="zoom" src="https://cdn.jsdelivr.net/gh/heart74/PicGo/img/202403251634741.png" alt="image-20240325163453438"></p>
+<p><img data-action="zoom" src="https://cdn.jsdelivr.net/gh/heart74/PicGo/img/202403251634784.png" alt="image-20240325163414663"></p>
+<p><img data-action="zoom" src="https://cdn.jsdelivr.net/gh/heart74/PicGo/img/202403251638043.png" alt="image-20240325163811964"></p>
+<p><strong>yolov4的介绍里有SPP</strong></p>
+<h3 id="RPN实现细节"><a href="#RPN实现细节" class="headerlink" title="RPN实现细节"></a>RPN实现细节</h3><p>3x3 卷积 + 两个1x1卷积 分别是前景后景类别预测，以及proposals框的坐标预测</p>
 
         </div>
         <!-- .entry-content -->

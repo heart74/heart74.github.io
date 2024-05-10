@@ -447,7 +447,8 @@
 <p><img data-action="zoom" src="https://cdn.jsdelivr.net/gh/heart74/PicGo/img/202403182009551.png" alt="image-20240318200948252"></p>
 <p>YOLOv1对小目标检测差，每个cell只测两个框，两个框都是一个类别的，当小目标聚集在一起，效果很差</p>
 <p>定位不准确</p>
-<h1 id="yolov2"><a href="#yolov2" class="headerlink" title="yolov2"></a>yolov2</h1><p><img data-action="zoom" src="https://cdn.jsdelivr.net/gh/heart74/PicGo/img/202403182016217.png" alt="image-20240318201653968"></p>
+<h1 id="yolov2"><a href="#yolov2" class="headerlink" title="yolov2"></a>yolov2</h1><p><img data-action="zoom" src="https://yoyospace.top/images/2d133c1dd9c168c75cb4579c3604fb2a52fa7f5d7a16a955147a5eef36db6793.png" alt></p>
+<p><img data-action="zoom" src="https://cdn.jsdelivr.net/gh/heart74/PicGo/img/202403182016217.png" alt="image-20240318201653968"></p>
 <p>相较于v1的提升</p>
 <h3 id="BN"><a href="#BN" class="headerlink" title="BN"></a>BN</h3><p>每个卷积后面添加了BN层，减少了一系列正则化处理， </p>
 <h3 id="更高分辨率的分类器"><a href="#更高分辨率的分类器" class="headerlink" title="更高分辨率的分类器"></a>更高分辨率的分类器</h3><p>一开始yolov1用的224x224预训练，yolov2采用更大的分类尺寸448x448</p>
@@ -463,6 +464,8 @@
 <p>没有通过最大池化，用卷积层步数为2进行下采样，卷积核个数少，参数少，速度快</p>
 <p><img data-action="zoom" src="https://cdn.jsdelivr.net/gh/heart74/PicGo/img/202403182117583.png" alt="image-20240318211749354"></p>
 <p>在小特征图（1）预测大目标，大特征图（3）预测小目标</p>
+<p>网络预测类似FPN</p>
+<p><img data-action="zoom" src="https://yoyospace.top/images/3b8f4f275b9260527b828cb545088f89f650107954f9150fdc3ecf5940c59823.png" alt></p>
 <h3 id="目标边界框的预测（和v2相同）"><a href="#目标边界框的预测（和v2相同）" class="headerlink" title="目标边界框的预测（和v2相同）"></a>目标边界框的预测（和v2相同）</h3><p><img data-action="zoom" src="https://cdn.jsdelivr.net/gh/heart74/PicGo/img/202403182121953.png" alt="image-20240318212132551"></p>
 <h3 id="正负样本匹配"><a href="#正负样本匹配" class="headerlink" title="正负样本匹配"></a>正负样本匹配</h3><p><img data-action="zoom" src="https://cdn.jsdelivr.net/gh/heart74/PicGo/img/202403182127457.png" alt="image-20240318212708126"></p>
 <p>对每个GT，分配一个Anchor作为正样本</p>
@@ -485,19 +488,21 @@
 <h3 id="SPP"><a href="#SPP" class="headerlink" title="SPP"></a>SPP</h3><p><img data-action="zoom" src="https://cdn.jsdelivr.net/gh/heart74/PicGo/img/202403182146630.png" alt="image-20240318214612568"></p>
 <h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><h3 id="anchor到底是什么？"><a href="#anchor到底是什么？" class="headerlink" title="anchor到底是什么？"></a>anchor到底是什么？</h3><p>先验候选框？往anchor上去学习，降低学习难度，加快训练速度</p>
 <h3 id="正负样本？"><a href="#正负样本？" class="headerlink" title="正负样本？"></a>正负样本？</h3><p>预测正确的框和预测失败的框</p>
+<p><img data-action="zoom" src="https://cdn.jsdelivr.net/gh/heart74/PicGo/img/202403251624143.png" alt="image-20240325162419073"></p>
 <p>正样本：</p>
 <ol>
 <li><strong>对象中心落在网格内：</strong>对于每个真实对象（ground truth object），其边界框（bounding box）的中心落在哪个网格单元内，那个网格单元就负责预测这个对象。因此，该网格单元和与之对应的预测边界框成为“正样本”</li>
 <li><strong>存在性置信度：</strong>与该网格相关联的“对象存在的置信度”应该接近1</li>
 <li><strong>类别标签：</strong>该网格单元还需要预测该对象的类别</li>
-<li></li>
 </ol>
 <p>负样本：</p>
 <ol>
 <li><strong>对象中心不落在网格内：</strong>如果一个网格单元内没有任何真实对象（ground truth object）的中心，那么该网格单元就是一个“负样本”</li>
 <li><strong>存在性置信度：</strong>与这些负样本网格相关联的“对象存在的置信度”接近0</li>
 </ol>
-<h3 id="用了BN为啥偏置没用"><a href="#用了BN为啥偏置没用" class="headerlink" title="用了BN为啥偏置没用"></a>用了BN为啥偏置没用</h3>
+<h3 id="用了BN为啥偏置没用"><a href="#用了BN为啥偏置没用" class="headerlink" title="用了BN为啥偏置没用"></a>用了BN为啥偏置没用</h3><p>如图所示，加不加偏置都一样</p>
+<p><img data-action="zoom" src="https://cdn.jsdelivr.net/gh/heart74/PicGo/img/202403251644643.png" alt="image-20240325164400480"></p>
+
         </div>
         <!-- .entry-content -->
         <div class="single-reward">

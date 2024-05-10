@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://heart74.github.io/"/>
-  <updated>2024-03-19T13:18:30.567Z</updated>
+  <updated>2024-04-15T13:22:25.282Z</updated>
   <id>https://heart74.github.io/</id>
   
   <author>
@@ -17,11 +17,51 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Resnet&amp;DenseNet</title>
-    <link href="https://heart74.github.io/2023/10/19/Resnet/"/>
-    <id>https://heart74.github.io/2023/10/19/Resnet/</id>
+    <title>PPO</title>
+    <link href="https://heart74.github.io/2024/03/25/PPO/"/>
+    <id>https://heart74.github.io/2024/03/25/PPO/</id>
+    <published>2024-03-25T14:41:25.000Z</published>
+    <updated>2024-04-15T13:22:25.282Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+      <category term="技术" scheme="https://heart74.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>VIT&amp;&amp;Swin</title>
+    <link href="https://heart74.github.io/2024/03/20/VIT_Swin/"/>
+    <id>https://heart74.github.io/2024/03/20/VIT_Swin/</id>
+    <published>2024-03-20T02:14:25.000Z</published>
+    <updated>2024-05-10T03:14:35.590Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;相关博客：&quot;&gt;&lt;a href=&quot;#相关博客：&quot; class=&quot;headerlink&quot; title=&quot;相关博客：&quot;&gt;&lt;/a&gt;相关博客：&lt;/h2&gt;&lt;p&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+      <category term="技术" scheme="https://heart74.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>ResNet&amp;DenseNet</title>
+    <link href="https://heart74.github.io/2023/10/19/Resnet&amp;Densenet&amp;%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"/>
+    <id>https://heart74.github.io/2023/10/19/Resnet&amp;Densenet&amp;卷积神经网络/</id>
     <published>2023-10-19T11:30:12.000Z</published>
-    <updated>2024-03-19T13:18:30.567Z</updated>
+    <updated>2024-04-19T03:23:35.074Z</updated>
     
     <summary type="html">
     
@@ -45,7 +85,7 @@
     <link href="https://heart74.github.io/2023/09/22/transformer/"/>
     <id>https://heart74.github.io/2023/09/22/transformer/</id>
     <published>2023-09-22T11:45:13.000Z</published>
-    <updated>2024-03-19T12:58:58.177Z</updated>
+    <updated>2024-04-26T08:24:44.653Z</updated>
     
     <summary type="html">
     
@@ -61,11 +101,11 @@
   </entry>
   
   <entry>
-    <title>cascade_rcnn</title>
+    <title>RCNN系列&amp;&amp;Cascade_rcnn</title>
     <link href="https://heart74.github.io/2023/04/19/cascade-rcnn/"/>
     <id>https://heart74.github.io/2023/04/19/cascade-rcnn/</id>
     <published>2023-04-19T03:10:13.000Z</published>
-    <updated>2024-03-19T11:28:39.810Z</updated>
+    <updated>2024-04-11T01:52:14.462Z</updated>
     
     <summary type="html">
     
@@ -89,7 +129,7 @@
     <link href="https://heart74.github.io/2023/03/19/yolov8/"/>
     <id>https://heart74.github.io/2023/03/19/yolov8/</id>
     <published>2023-03-19T02:12:49.000Z</published>
-    <updated>2024-03-19T08:08:50.524Z</updated>
+    <updated>2024-04-11T02:01:03.664Z</updated>
     
     <summary type="html">
     
@@ -113,7 +153,7 @@
     <link href="https://heart74.github.io/2023/01/10/yolov5/"/>
     <id>https://heart74.github.io/2023/01/10/yolov5/</id>
     <published>2023-01-10T11:50:00.000Z</published>
-    <updated>2024-03-19T07:06:49.745Z</updated>
+    <updated>2024-04-11T02:12:43.208Z</updated>
     
     <summary type="html">
     
@@ -138,7 +178,7 @@
     <link href="https://heart74.github.io/2022/10/24/yolov4/"/>
     <id>https://heart74.github.io/2022/10/24/yolov4/</id>
     <published>2022-10-24T01:34:15.000Z</published>
-    <updated>2024-03-19T02:18:27.979Z</updated>
+    <updated>2024-04-11T04:22:39.840Z</updated>
     
     <summary type="html">
     
@@ -162,7 +202,7 @@
     <link href="https://heart74.github.io/2022/10/18/yolov1-v3/"/>
     <id>https://heart74.github.io/2022/10/18/yolov1-v3/</id>
     <published>2022-10-18T11:55:23.000Z</published>
-    <updated>2024-03-19T07:04:10.275Z</updated>
+    <updated>2024-04-11T01:19:31.330Z</updated>
     
     <summary type="html">
     
