@@ -469,7 +469,8 @@
 <p><img data-action="zoom" src="https://cdn.jsdelivr.net/gh/heart74/PicGo/img/202403142042863.png" alt="image-20240314204233770"></p>
 <p>h = 8 用8个头，每次除以8，投影到64维</p>
 <p> <strong>做多头的原因：</strong>因为注意力计算没有过程里没有可以学习的参数，让不同的Linear学习不同的特征，投影（线性层）的权重W是可以学的，可以学H个投影方法，来匹配不同的模式需要的一些相似函数，有点像有多个输出通道的感觉，一个卷积核和多个卷积核的区别</p>
-<h3 id="Position-wise-前馈神经网络"><a href="#Position-wise-前馈神经网络" class="headerlink" title="Position-wise 前馈神经网络"></a>Position-wise 前馈神经网络</h3><p><img data-action="zoom" src="https://cdn.jsdelivr.net/gh/heart74/PicGo/img/202403142113606.png" alt="image-20240314211329432"></p>
+<h3 id="Position-wise-前馈神经网络"><a href="#Position-wise-前馈神经网络" class="headerlink" title="Position-wise 前馈神经网络"></a>Position-wise 前馈神经网络</h3><p>有两层,W1的形状为(512,2048),W2的形状为(2048,512)</p>
+<p><img data-action="zoom" src="https://cdn.jsdelivr.net/gh/heart74/PicGo/img/202403142113606.png" alt="image-20240314211329432"></p>
 <p>x是query的输出，也就是512维，MLP把它投影到2048，又投影回去</p>
 <p><img data-action="zoom" src="https://cdn.jsdelivr.net/gh/heart74/PicGo/img/202403142117712.png" alt="image-20240314211749490"></p>
 <p>左边transfomer，右边RNN，所以transformer用的是序列的全局信息</p>

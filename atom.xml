@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://heart74.github.io/"/>
-  <updated>2024-04-15T13:22:25.282Z</updated>
+  <updated>2024-06-18T06:47:06.306Z</updated>
   <id>https://heart74.github.io/</id>
   
   <author>
@@ -17,13 +17,45 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>PPO</title>
-    <link href="https://heart74.github.io/2024/03/25/PPO/"/>
-    <id>https://heart74.github.io/2024/03/25/PPO/</id>
-    <published>2024-03-25T14:41:25.000Z</published>
-    <updated>2024-04-15T13:22:25.282Z</updated>
+    <title>RL_Overview</title>
+    <link href="https://heart74.github.io/2024/06/13/RL-Overview/"/>
+    <id>https://heart74.github.io/2024/06/13/RL-Overview/</id>
+    <published>2024-06-13T01:10:05.000Z</published>
+    <updated>2024-06-18T06:47:06.306Z</updated>
     
     <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;1-lilian-RL&quot;&gt;&lt;a href=&quot;#1-lilian-RL&quot; class=&quot;headerlink&quot; title=&quot;-1 lilian RL&quot;&gt;&lt;/a&gt;-1 lilian RL&lt;/h1&gt;&lt;h1 id=&quot;0-简介&quot;&gt;&lt;a href=&quot;#0-简介&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="技术" scheme="https://heart74.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>LHY_RL</title>
+    <link href="https://heart74.github.io/2024/03/25/LHY_RL/"/>
+    <id>https://heart74.github.io/2024/03/25/LHY_RL/</id>
+    <published>2024-03-25T14:41:25.000Z</published>
+    <updated>2024-06-17T09:26:30.497Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;引言&quot;&gt;&lt;a href=&quot;#引言&quot; class=&quot;headerlink&quot; title=&quot;引言&quot;&gt;&lt;/a&gt;引言&lt;/h1&gt;&lt;p&gt;&lt;img
+        
+      
     
     </summary>
     
@@ -37,7 +69,7 @@
     <link href="https://heart74.github.io/2024/03/20/VIT_Swin/"/>
     <id>https://heart74.github.io/2024/03/20/VIT_Swin/</id>
     <published>2024-03-20T02:14:25.000Z</published>
-    <updated>2024-05-10T03:14:35.590Z</updated>
+    <updated>2024-05-18T08:00:57.126Z</updated>
     
     <summary type="html">
     
@@ -61,7 +93,7 @@
     <link href="https://heart74.github.io/2023/10/19/Resnet&amp;Densenet&amp;%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"/>
     <id>https://heart74.github.io/2023/10/19/Resnet&amp;Densenet&amp;卷积神经网络/</id>
     <published>2023-10-19T11:30:12.000Z</published>
-    <updated>2024-04-19T03:23:35.074Z</updated>
+    <updated>2024-05-17T03:00:25.155Z</updated>
     
     <summary type="html">
     
@@ -85,7 +117,7 @@
     <link href="https://heart74.github.io/2023/09/22/transformer/"/>
     <id>https://heart74.github.io/2023/09/22/transformer/</id>
     <published>2023-09-22T11:45:13.000Z</published>
-    <updated>2024-04-26T08:24:44.653Z</updated>
+    <updated>2024-05-18T08:17:44.356Z</updated>
     
     <summary type="html">
     
@@ -129,7 +161,7 @@
     <link href="https://heart74.github.io/2023/03/19/yolov8/"/>
     <id>https://heart74.github.io/2023/03/19/yolov8/</id>
     <published>2023-03-19T02:12:49.000Z</published>
-    <updated>2024-04-11T02:01:03.664Z</updated>
+    <updated>2024-05-12T14:55:32.640Z</updated>
     
     <summary type="html">
     
@@ -202,7 +234,7 @@
     <link href="https://heart74.github.io/2022/10/18/yolov1-v3/"/>
     <id>https://heart74.github.io/2022/10/18/yolov1-v3/</id>
     <published>2022-10-18T11:55:23.000Z</published>
-    <updated>2024-04-11T01:19:31.330Z</updated>
+    <updated>2024-05-17T01:05:58.983Z</updated>
     
     <summary type="html">
     

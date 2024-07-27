@@ -447,7 +447,29 @@
 <p><strong>原因2：</strong> 不好补pad</p>
 <p><img data-action="zoom" src="https://cdn.jsdelivr.net/gh/heart74/PicGo/img/202404171324151.png" alt="image-20240417132415071"></p>
 <p>原因3：<img data-action="zoom" src="https://cdn.jsdelivr.net/gh/heart74/PicGo/img/202404171327668.png" alt="image-20240417132721605"></p>
-<h4 id="卷积核设计："><a href="#卷积核设计：" class="headerlink" title="卷积核设计："></a>卷积核设计：</h4><p><img data-action="zoom" src="https://cdn.jsdelivr.net/gh/heart74/PicGo/img/202404171329400.png" alt="image-20240417132930302"></p>
+<h4 id="卷积核设计："><a href="#卷积核设计：" class="headerlink" title="卷积核设计："></a>卷积核设计：</h4><p>如何设计和选择卷积核的基本原则：</p>
+<ol>
+<li><strong>卷积核的大小</strong><ul>
+<li>卷积核一般选择奇数大小，常见的如 1x1，3x3，5x5，7x7 等，这是为了让卷积操作有一个明确的中心。</li>
+<li>较小的卷积核（如3x3）是卷积神经网络中最常用的，因为他们在少量的参数中可以捕获到感受野内的空间信息。此外，多层较小的卷积核堆叠起来可以达到和单层较大卷积核（如5x5，7x7）同样的感受野，但参数数量更少，计算效率更高。</li>
+</ul>
+</li>
+<li><strong>卷积核的数量</strong><ul>
+<li>卷积核的数量等于卷积层输出的通道数（depth）。卷积核的数量通常为 2 的幂次方，如 16, 32, 64, 128, 256等，因为这样的设计可以方便GPU进行运算。</li>
+<li>卷积核的数量体现了模型的学习能力。在早期的卷积层，由于输入的特征（如图像）通常包含较少的抽象信息（如边缘，颜色，纹理等），所以卷积核的数量一般较少。但在深层的卷积层，模型需要学习更复杂的特征，此时一般要增加卷积核的数量来提高模型的学习能力。</li>
+<li>选择卷积核数量的过程也是一个权衡过程，过少可能导致模型学习能力不足，无法捕获到所有的信息；过多可能导致模型过拟合，增加计算负担。</li>
+</ul>
+</li>
+<li><strong>卷积核的初始化</strong><ul>
+<li>通常，卷积核的权重是随机初始化的（如使用高斯分布），然后通过训练数据进行反向传播和梯度下降来进行学习和优化，这样每个卷积核最后可以学习到从输入数据中提取不同特征的能力。</li>
+</ul>
+</li>
+<li><strong>卷积层的设计</strong><ul>
+<li>卷积层设计还包括步长和填充的选择。步长（stride）决定了卷积核在输入上滑动的速度，较大的步长可以下采样输入，减少计算量；填充（padding）可以解决边界信息损失问题，保持输出的空间尺寸。</li>
+</ul>
+</li>
+</ol>
+<p>选择卷积核的大小和数量没有固定的公式，大多数情况下需要根据问题的具体情况和经验进行尝试和优化。模型的设计往往是一个试错的过程，需要尝试不同的组合并验证模型的性能。</p>
 <h3 id="AlexNet"><a href="#AlexNet" class="headerlink" title="AlexNet"></a>AlexNet</h3><p><img data-action="zoom" src="https://cdn.jsdelivr.net/gh/heart74/PicGo/img/202403191946833.png" alt="image-20240319194613671">、</p>
 <p><img data-action="zoom" src="https://cdn.jsdelivr.net/gh/heart74/PicGo/img/202403191946948.png" alt="image-20240319194632840"></p>
 <h3 id="VGG"><a href="#VGG" class="headerlink" title="VGG"></a>VGG</h3><p><img data-action="zoom" src="https://zh-v2.d2l.ai/_images/vgg.svg" alt></p>

@@ -445,6 +445,9 @@
 <p> <img data-action="zoom" src="https://cdn.jsdelivr.net/gh/heart74/PicGo/img/202403182007207.png" alt="image-20240318200745885"></p>
 <p><img data-action="zoom" src="https://cdn.jsdelivr.net/gh/heart74/PicGo/img/202403182002084.png" alt="image-20240318200220821"></p>
 <p><img data-action="zoom" src="https://cdn.jsdelivr.net/gh/heart74/PicGo/img/202403182009551.png" alt="image-20240318200948252"></p>
+<p>损失函数</p>
+<pre><code class="markdown">注意分类损失没有用交叉熵，用的误差平方和
+</code></pre>
 <p>YOLOv1对小目标检测差，每个cell只测两个框，两个框都是一个类别的，当小目标聚集在一起，效果很差</p>
 <p>定位不准确</p>
 <h1 id="yolov2"><a href="#yolov2" class="headerlink" title="yolov2"></a>yolov2</h1><p><img data-action="zoom" src="https://yoyospace.top/images/2d133c1dd9c168c75cb4579c3604fb2a52fa7f5d7a16a955147a5eef36db6793.png" alt></p>
@@ -476,8 +479,9 @@
 <h3 id="CIOU"><a href="#CIOU" class="headerlink" title="CIOU"></a>CIOU</h3><p><img data-action="zoom" src="https://cdn.jsdelivr.net/gh/heart74/PicGo/img/202403182153332.png" alt="image-20240318215333981"></p>
 <h4 id="IOU-loss"><a href="#IOU-loss" class="headerlink" title="IOU loss"></a>IOU loss</h4><p><img data-action="zoom" src="https://cdn.jsdelivr.net/gh/heart74/PicGo/img/202403182154109.png" alt="image-20240318215421695"></p>
 <h4 id="GIOU"><a href="#GIOU" class="headerlink" title="GIOU"></a>GIOU</h4><p><img data-action="zoom" src="https://cdn.jsdelivr.net/gh/heart74/PicGo/img/202403182155992.png" alt="image-20240318215526502"></p>
-<p> 缺点：某些情况下会退化成IOU，但是问题不大？</p>
+<p> 缺点：某些情况下会退化成IOU，但是问题不大？  u是两个框并起来的面积，Ac是两个矩形的最小外接矩形的面积，也就是蓝色框的面积，那么当两个框不相交的时候，Ac-U就会比较大，不会导致GIou为0</p>
 <h4 id="DIOU-LOSS"><a href="#DIOU-LOSS" class="headerlink" title="DIOU LOSS"></a>DIOU LOSS</h4><p><img data-action="zoom" src="https://cdn.jsdelivr.net/gh/heart74/PicGo/img/202403182200536.png" alt="image-20240318220049073"></p>
+<p><strong>IoU值不能反映两个框是如何相交的</strong>，在中心明显更好</p>
 <p><img data-action="zoom" src="https://cdn.jsdelivr.net/gh/heart74/PicGo/img/202403182208344.png" alt="image-20240318220842879"></p>
 <h4 id="CIou-Loss"><a href="#CIou-Loss" class="headerlink" title="CIou Loss"></a>CIou Loss</h4><p><img data-action="zoom" src="https://cdn.jsdelivr.net/gh/heart74/PicGo/img/202403182205725.png" alt="image-20240318220548324"></p>
 <h3 id="Focal-Loss"><a href="#Focal-Loss" class="headerlink" title="Focal Loss"></a>Focal Loss</h3><p><img data-action="zoom" src="https://cdn.jsdelivr.net/gh/heart74/PicGo/img/202403182212582.png" alt="image-20240318221210893"></p>
@@ -486,7 +490,16 @@
 <p><img data-action="zoom" src="https://cdn.jsdelivr.net/gh/heart74/PicGo/img/202403182222984.png" alt="image-20240318222238530">增加难分样本权重，减少易分样本权重，容易受到噪声干扰</p>
 <h3 id="Mosaic"><a href="#Mosaic" class="headerlink" title="Mosaic"></a>Mosaic</h3><p><img data-action="zoom" src="https://cdn.jsdelivr.net/gh/heart74/PicGo/img/202403182144385.png" alt="image-20240318214450598"></p>
 <h3 id="SPP"><a href="#SPP" class="headerlink" title="SPP"></a>SPP</h3><p><img data-action="zoom" src="https://cdn.jsdelivr.net/gh/heart74/PicGo/img/202403182146630.png" alt="image-20240318214612568"></p>
-<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><h3 id="anchor到底是什么？"><a href="#anchor到底是什么？" class="headerlink" title="anchor到底是什么？"></a>anchor到底是什么？</h3><p>先验候选框？往anchor上去学习，降低学习难度，加快训练速度</p>
+<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><h3 id="anchor到底是什么？"><a href="#anchor到底是什么？" class="headerlink" title="anchor到底是什么？"></a>anchor到底是什么？</h3><p>先验候选框？往anchor上去学习，降低学习难度，加快训练速度，学习目标是anchor相对于GT的偏移</p>
+<h4 id="目标检测算法-assigner的作用"><a href="#目标检测算法-assigner的作用" class="headerlink" title="目标检测算法  assigner的作用"></a>目标检测算法  assigner的作用</h4><p>在目标检测算法中，assigner 的作用是在训练阶段将预测框（也称为候选框或anchors）（预测的结果是anchors相对于GT的偏移）分配给正确的类别标签和真实框（ground truth boxes）。这是训练检测模型过程中的一个关键步骤，因为这确保了模型能够从适当的例子中学习，从而提高目标检测的准确率。</p>
+<p>目标检测模型依赖于大量的预测框来覆盖图片中可能出现的物体位置。这些预测框是在训练和推断阶段前生成的，通常有很多个，并且覆盖了不同的尺寸和纵横比。目标是识别出哪些预测框与真实存在的物体匹配，以及这些物体属于哪个类别。</p>
+<p>assigner 的任务可以总结为以下几点：</p>
+<ol>
+<li><strong>正负样本分配</strong>：区分这些预测框是作为正样本（即与真实框有较高重叠度的预测框）还是负样本（与真实框重叠度较低或没有重叠的预测框）。重叠度一般通过计算预测框和真实框之间的交并比（IoU, Intersection over Union）来确定。具体的IoU阈值取决于具体的算法和设置。</li>
+<li><strong>多任务学习分配</strong>：一旦确定了正样本，assigner 还需要将每个正样本预测框分配给对应的真实框。这是为了训练模型去学习如何调整这些预测框使其更接近真实框（即框回归），以及如何正确识别物体的类别。</li>
+<li><strong>控制样本平衡</strong>：在训练目标检测模型时，通常会存在正负样本不平衡的情况。assigner 也可能会采取策略，如过采样正样本或负样本，或者使用其他技术来确保模型不会偏向于最频繁的类别。</li>
+</ol>
+<p>不同的目标检测算法可能使用不同的assigner策略。例如，Faster R-CNN 使用 Region Proposal Network (RPN) 来生成候选区域，并使用预设的IoU阈值来分配正负样本；而YOLO（You Only Look Once）算法通过在单个网络中直接预测边界框和类别概率，采用不同的策略来分配样本。</p>
 <h3 id="正负样本？"><a href="#正负样本？" class="headerlink" title="正负样本？"></a>正负样本？</h3><p>预测正确的框和预测失败的框</p>
 <p><img data-action="zoom" src="https://cdn.jsdelivr.net/gh/heart74/PicGo/img/202403251624143.png" alt="image-20240325162419073"></p>
 <p>正样本：</p>
